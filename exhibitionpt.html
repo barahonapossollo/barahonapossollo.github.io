@@ -191,8 +191,8 @@
 $.getJSON('Gallery.json', function(data) {
   var items = [];
   // var ImageURL = "https://dl.dropboxusercontent.com/u/2176344/BarahonaPossollo/public/";
-  var ImageURL = "https://dl.dropboxusercontent.com/u/2176344/BPGallery";
-
+  //var ImageURL = "https://dl.dropboxusercontent.com/u/2176344/BPGallery";
+  var ImageURL = "https://barahonapossollo.github.io/gallery"
   $.each( data.results, function( key, value ) {
     if(value.year == "2015") {
       if(value.dimensions != undefined){
