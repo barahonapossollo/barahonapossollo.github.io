@@ -1,0 +1,331 @@
+  /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+    body {
+      padding-bottom: 40px;
+       color: #5a5a5a;
+      font-family: 'Open Sans', sans-serif;
+      background: #444;
+/*       font-family: 'Pacifico', cursive; */
+    }
+
+.modal-backdrop {background-color: black;}
+
+
+.cv {
+			color: #aaa;
+/* 			color: gray; */
+      font-family: 'Open Sans', sans-serif;
+      font-size:  17px;
+      line-height: 35px;
+      text-align:justify;
+/*       background: green; */
+
+}
+.cv li {
+line-height: 35px; /* 4px +12px + 4px */
+}
+.cv h1 {
+        text-shadow: 0px 1px 1px #4d4d4d;
+        color: #000;
+        font-size:  35px;
+        text-align:center;
+        padding: 50px;
+}
+
+.cv #facebook {
+        text-shadow: 0px 1px 1px #4d4d4d;
+        color: #000;
+        vertical-align:middle;
+}
+.cv a:hover #facebook ,
+.cv a:focus #facebook {
+       color: #0088cc;
+        vertical-align:middle;
+}
+
+
+.cv a {
+	color: #aaa;
+  text-decoration: none;
+}
+
+.cv a:hover,
+.cv a:focus {
+  color: #0088cc;
+  /* text-decoration: underline; */
+}
+
+
+/*TILT*/
+.tilt {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+/* -webkit-backface-visibility: hidden; */
+}
+
+.tilt:hover {
+  -webkit-transform: rotate(7deg);
+     -moz-transform: rotate(7deg);
+       -o-transform: rotate(7deg);
+      -ms-transform: rotate(7deg);
+          transform: rotate(7deg);
+/* -webkit-backface-visibility: hidden; */
+}
+
+
+/*BLUR*/
+.blur {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.blur hover {
+  -webkit-filter: blur(5px);
+}
+
+/*B&W*/
+.bw {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.bw:hover {
+  -webkit-filter: grayscale(100%);
+}
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+    .navbar-wrapper .navbar {
+				/* width: 1070px; */
+				width: 960px;
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+    	color: #F0DC82;
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 960px;
+/*   width: 1080px; */
+}
+
+
+
+/*
+  .btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(0, 0, 0, 0.75);
+}
+ */
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+@media (max-width: 1024px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+
+    }
+
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+
+    }
+
+
+
+/*
+
+    ul#demo-block{ margin:0 15px 15px 15px;
+
+    background-color: #2c2c2c; /* fallback color, place your own */
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  background-repeat: repeat-x;
+
+  /* IE8-9 gradient filter */
+/*
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+   }
+ */
+
+/*
+			ul#demo-block li{ margin:0 0 10px 10px; padding:10px; display:inline; float:left; clear:both; color:#aaa; font:20px Open Sans, Helvetica, Arial, sans-serif; }
+			ul#demo-block li a{ color:#eee; font-weight:bold; }
+ */
+
+
+#gallery-wrapper{
+	   margin: 0 0 0 0px;
+
+}
+
+  #gallery {
+
+    /*background: red;*/
+  	margin-bottom: 10px;
+  	height: auto;
+  	top: 10px;
+  	left: 50px;
+    right: 0px;
+  	text-align: center;
+    margin: auto;
+
+  }
+
+
+
+
+
+.itemMasonry {
+  width:  200px;
+  height: auto;
+  float: left;
+  margin-bottom: 4px; /* related to Masonry gutter */
+/*   border-left: 5px; */
+/*   background: #D26; */
+
+/*   border-color: hsla(0, 0%, 0%, 0.5); */
+/*   border-radius: 5px; */
+  /*display: none;*/
+}
+
+.itemMasonry img{
+  border-radius: 5px;
+	/* border: 5px solid #f00; */
+}
+
+.itemMasonry.w2 { width: 400px; }
+
+.itemMasonry.w3 { width: 600px; }
+
+.itemMasonry.w5 { width: 1024px; }
+
+
+
+ .btn-inverse {
+  color: #ddd;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #363636;
+  *background-color: #222222;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444444, #222222);
+  background-repeat: repeat-x;
+  border-color: #222222 #222222 #000000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+
+}
+
+.btn-inverse:hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ddd;
+  background-color: #222222;
+  *background-color: #151515;
+}
+
+
+#supersized img{
+  max-width: none;
+}
+
+ul#supersized {
+padding:0;
+margin:0;
+}
