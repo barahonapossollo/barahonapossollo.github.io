@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Barahona Possollo &middot; 2013</title>
+    <title>Carlos Barahona Possollo &middot; 2016</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -78,7 +78,7 @@
 
 
 <!-- <div id="gallery-wrapper"> -->
-<div id="gallery">
+<div id="gallery" style="visibility: hidden;">
 
   <div class="itemMasonry w2" ><a class="fancybox" href="https://barahonapossollo.github.io/gallery/2015Bomarzo00001b.jpg" title="A Bruxa, óleo sobre tela, 97x74cm, 2011"><img  class="tilt" src='https://barahonapossollo.github.io/gallery/2015Bomarzo00001.jpg'></a></div>
   <div class="itemMasonry w2" ><a class="fancybox" href="https://barahonapossollo.github.io/gallery/2015Bomarzo00002b.jpg" title="A Cadeia, óleo sobre tela, 110x110cm, 2011"><img  class="tilt" src='https://barahonapossollo.github.io/gallery/2015Bomarzo00002.jpg'></a></div>
@@ -290,6 +290,10 @@
 	<div class="itemMasonry w2" style="height: 502px;"><a class="fancybox" href="https://barahonapossollo.github.io/gallery/199101b.jpg" title="The Holy Women, oil on board, 39x29cm, 1991"><img  class="bw" src='https://barahonapossollo.github.io/gallery/199101.jpg'></a></div>
 
 </div>
+
+<div id="get-data" style="background-color: red;"> GET DATA</div>
+<div id="show-data" style="border: 5px solid red;"></div>
+
     </div><!-- /.navbar-wrapper -->
 <!-- </div> --><!-- /.gallery-wrapper -->
 
@@ -401,6 +405,7 @@ var container = document.querySelector('#gallery');
 // });
 
 $(document).ready(function() {
+
     $(".fancybox").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic',
@@ -410,6 +415,29 @@ $(document).ready(function() {
               }
           }
       });
+
+      $('#get-data').click(function () {
+        var showData = $('#show-data');
+
+        $.getJSON('https://dl.dropboxusercontent.com/u/2176344/Gallery.json', function (data) {
+          console.log(data);
+
+          var items = data.items.map(function (item) {
+            return item.key + ': ' + item.value;
+          });
+
+          showData.empty();
+
+          if (items.length) {
+            var content = '<li>' + items.join('</li><li>') + '</li>';
+            var list = $('<ul />').html(content);
+            showData.append(list);
+          }
+        });
+
+        showData.text('Loading the JSON file.');
+      });
+
 });
 
     </script>
