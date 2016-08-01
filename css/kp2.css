@@ -15,7 +15,7 @@
   top: 0;
   width: 24.25%;
   height: 100%;
-  background: red;
+  background: #252525;
   transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s; }
   .el:not(.s--active) {
     cursor: pointer; }
