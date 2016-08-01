@@ -147,13 +147,13 @@
     <!-- el end -->
 
   </div>
-  <div id="result"></div>
+
   <!-- cont inner end -->
 
 
 </div>
 
-
+<div id="gallery"></div>
 
 
 
@@ -242,9 +242,6 @@
 
         console.log("element clicked!");
 
-        // document.getElementById("result").innerHTML = document.querySelector('.el.s--active h2').innerHTML;
-
-
         if (this.classList.contains('s--active')) return;
         $cont.classList.add('s--el-active');
         this.classList.add('s--active');
@@ -256,12 +253,35 @@
         console.log($cat);
 
 
-      });
-      // console.log(document.querySelector('.el.s--active h2').innerHTML);
-      // console.log(document.getElementById("result").innerHTML);
-      //
-      // document.getElementById("result").innerHTML = document.querySelector('.el.s--active h2').innerHTML;
+        var showData = $('#gallery');
 
+        $.getJSON('https://dl.dropboxusercontent.com/u/2176344/Gallery.json', function (data) {
+          console.log(data);
+          console.log(">>>>>>>>>>>>>>>>> "+$cat);
+
+
+          $.each(data, function(i, item) {
+            console.log(item.filename[0]);
+            if (item.cat.toLowerCase() == $cat){
+              var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
+              listData += item.enTitle+", "+item.enInfo;
+              if (item.size == ' ') listData += ", "+item.size;
+              listData += ", "+item.year;
+              listData += "'><img src='new_gallery/" + item.filename + ".jpg'></a></div>";
+              console.log('---------');
+              console.log(listData);
+              if($cat == 'eros'){
+                $('#myModal2').modal('show');
+              }
+              $('#gallery').append(listData);
+            }
+        });
+      });
+
+
+
+
+      });
     });
 
     $closeBtnsArr.forEach(function($btn) {
@@ -273,11 +293,7 @@
 
         $cont.classList.remove('s--el-active');
         document.querySelector('.el.s--active').classList.remove('s--active');
-
-
-
-        // document.getElementById("result").innerHTML = document.getElementsByClassName("el s--active")[0].getElementsByClassName("el__text")[0].innerHTML;
-
+        $('#gallery').empty();
 
       });
     });
@@ -294,6 +310,7 @@ $(document).ready(function() {
               }
           }
       });
+
 });
 
     </script>
