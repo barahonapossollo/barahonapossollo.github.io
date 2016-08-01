@@ -206,8 +206,12 @@ $(document).ready(function() {
             console.log(item.filename[0]);
 
             // var listData = "<div class='itemMasonry w2'><a class='fancybox' href='new_gallery/"+ item.filename +".jpg' title='"+item.enTitle+"'><img  class='tilt' src='new_gallery/"+ item.filename +".jpg'></a></div>";
-            if (item.cat == 'Melancholy'){
-              var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='"+item.enTitle+", "+item.enInfo+", "+item.size+", "+item.year+"'><img src='new_gallery/" + item.filename + ".jpg'></a></div>";
+            if (item.cat == 'Portrait'){
+              var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
+              listData += item.enTitle+", "+item.enInfo;
+              if (item.size == ' ') listData += ", "+item.size;
+              listData += ", "+item.year;
+              listData += "'><img src='new_gallery/" + item.filename + ".jpg'></a></div>";
               console.log('---------');
               console.log(listData);
               $('#gallery').append(listData);
