@@ -47,7 +47,7 @@
       transition: transform 1s;
       transform: translate3d(0, 0, 0) scale(1); }
       .cont.s--inactive .el__bg:before {
-        transform: translate3d(0, -100%, 0) scale(1.2); }
+        transform: translate3d(0, -100%, 0) scale(1); }
       .el.s--active .el__bg:before {
         transition: transform 0.8s; }
     .el__bg:after {
@@ -266,6 +266,6 @@
       transition: transform 0.6s; }
       .el.s--active .el__bg:before {
         transition-delay: 0.6s;
-        transform: scale(1.1); }
+        transform: scale(1); }
 
 /*# sourceMappingURL=kp2.css.map */
