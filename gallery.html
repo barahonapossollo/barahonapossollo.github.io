@@ -255,40 +255,33 @@
 
 
         var showData = $('#gallery');
+        // var url = 'https://dl.dropboxusercontent.com/u/2176344/Gallery.json';
+        var url = 'gallery/Gallery.json';
 
-        $.getJSON('https://dl.dropboxusercontent.com/u/2176344/Gallery.json', function (data) {
-          console.log(data);
-          console.log(">>>>>>>>>>>>>>>>> "+$cat);
-
-
+        $.getJSON(url, function (data) {
+          var array =[];
           $.each(data, function(i, item) {
-            console.log(item.filename[0]);
             if (item.cat.toLowerCase() == $cat){
-              var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
-              listData += item.enTitle+", "+item.enInfo;
-              if (item.size == ' ') listData += ", "+item.size;
-              listData += ", "+item.year;
-              listData += "'><img src='new_gallery/" + item.filename + ".jpg'></a></div>";
-              console.log('---------');
-              console.log(listData);
-              if($cat == 'eros'){
-                console.log("SHOW MODAL")
-                if($('#myModal2').modal('show')){
-                  $('#gallery').append(listData);
-                };
-
-              } else {
-                  $('#gallery').append(listData);
-              }
-
-
+              array.push([item.pos,item])
+              array.sort(function(a,b){return a[0] - b[0]});
             }
+          });
+          $.each(array, function(i, item) {
+            var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item[1].filename + ".jpg' title='";
+            listData += item[1].enTitle+", "+item[1].enInfo;
+            if (item[1].size == ' ') listData += ", "+item[1].size;
+            listData += ", "+item[1].year;
+            listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
+            if($cat == 'eros'){
+              if($('#myModal2').modal('show')){
+                $('#gallery').append(listData);
+              };
+
+            } else {
+                $('#gallery').append(listData);
+            }
+          });
         });
-      });
-
-
-
-
       });
     });
 
