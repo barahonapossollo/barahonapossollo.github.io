@@ -152,19 +152,16 @@
 
 			<div class="modal-body">
 
-
-
-
-				<form action="http://web.ist.utl.pt/ist148283/email/email.php" method="GET" id="contact">
-						<label for="name">Nome</label>
-						<input class="span3" type="text" name="name" placeholder="Insira o seu nome"/>
-						<label for="email">Email</label>
-						<input class="span3" type="text" name="email" placeholder="Insira o seu email">
-						<label for="message">Mensagem</label>
-						<textarea name="message" placeholder="Insira a sua mensagem" class="input-xlarge span5" rows="5"></textarea>
-						<input type="hidden" name="website" value="barahonapossollo.com">
-        </form>
-
+                <form action="https://formspree.io/jamaral7@gmail.com" method="POST" id="contact">
+                    <label for="name">Name</label>
+                    <input class="span3" type="text" name="name" placeholder="Insira o seu nome"/>
+                    <label for="email">Email</label>
+                    <input class="span3" type="email" name="email" placeholder="Insira o seu email">
+                    <label for="message">Message</label>
+                    <textarea name="message" placeholder="Insira a sua mensagem" class="input-xlarge span5" rows="5"></textarea>
+                    <input type="hidden" name="website" value="barahonapossollo.com">
+                    <input type="hidden" name="_subject" value="New Message from Website" />
+                </form>
 
 			</div>
 			<div class="modal-footer">
@@ -314,7 +311,7 @@
 		  });
 
       $(window).load(function(){
-          $('#myModal3').modal('show');
+          //$('#myModal3').modal('show');
       });
 
 
