@@ -273,18 +273,15 @@
                     if (item[1].size == ' ') listData += ", " + item[1].size;
                     listData += ", " + item[1].year;
                     listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
-                    if ($cat == 'eros') {
-
-
-
-
+                    $('#myModal2').modal('show');
+                    $('#gallery').append(listData);
+                    /* if ($cat == 'eros') {
                         if ($('#myModal2').modal('show')) {
                             $('#gallery').append(listData);
                         };
-
                     } else {
                         // $('#gallery').append(listData);
-                    }
+                    }*/
                 });
             });
         });
