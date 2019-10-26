@@ -173,7 +173,7 @@
   .navbar-fixed-bottom .container {
       /* width: 960px;s */
       /*   width: 1080px; */
-      width: 100%;
+      width: 100% !important;
   }
   /*
   .btn-primary.active,
