@@ -12,6 +12,23 @@
 
 .modal-backdrop {background-color: black;}
 
+iframe {
+    width: 100%;
+    height: 56.25vw;
+}
+
+
+@media only screen and (max-width: 600px){
+    .cv {
+        padding: 20px;
+    }
+
+    iframe {
+        width: 100vw; 
+        height: 56.25vw;
+    }
+}
+
 
 .cv {
 			color: #aaa;
@@ -120,7 +137,7 @@ line-height: 35px; /* 4px +12px + 4px */
     }
     .navbar-wrapper .navbar {
 				/* width: 1070px; */
-				width: 960px;
+				/* width: 960px; */
     }
 
     /* Remove border and change up box shadow for more contrast */
@@ -154,7 +171,7 @@ line-height: 35px; /* 4px +12px + 4px */
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 960px;
+  /* width: 960px;s */
 /*   width: 1080px; */
 }
 
@@ -263,7 +280,21 @@ line-height: 35px; /* 4px +12px + 4px */
 
 
 
-
+@media screen and (max-width: 600px){
+    .itemMasonry {
+        width:  100%;
+        height: auto;
+        float: left;
+        margin-bottom: 4px; /* related to Masonry gutter */
+      /*   border-left: 5px; */
+      /*   background: #D26; */
+      
+      /*   border-color: hsla(0, 0%, 0%, 0.5); */
+      /*   border-radius: 5px; */
+        /*display: none;*/
+        border: 10px solid #1f1f1f;
+      }
+}
 
 .itemMasonry {
   width:  200px;
