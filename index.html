@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Carlos Barahona Possollo &middot; 2019</title>
+  <title>Carlos Barahona Possollo - 2019</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="description">
   <meta content="" name="author">
@@ -21,27 +21,6 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
  -->
-
-  <style>
-        #invitationModal .modal-dialog, .modal-content {
-            height: 90%;
-        }
-
-        #invitationModal .modal-body {
-        /* 100% = dialog height, 120px = header + footer */
-            max-height: calc(100% - 120px);
-            overflow-y: false;
-        }
-
-        #datepicker {
-            height: 30px;
-            vertical-align: baseline;
-        }
-        #errorMessage {
-            font-size: small;
-        }
-        
-  </style>
 </head>
 <body id="main">
   <!-- NAVBAR
@@ -81,7 +60,7 @@
     </div>
   </div>
   <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="invitationModal" role="dialog" tabindex="-1">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
@@ -98,23 +77,27 @@
     </div>
   </div>
   <div class="modal hide fade" data-focus-on="input:first" id="agegate" tabindex="-1">
-    <div class="modal-header">
-      <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
-      <h3>Verificação de idade | Age verification</h3>
-    </div>
-    <div class="modal-body">
-      <p>Esta é a página de download do Catálogo da Instalação de pintura erótica <b>Behind the Green Door</b> destinada a maiores de 18 anos.</p>
-      <p>Introduza por favor a sua data de nascimento no formato dia/mês/ano ou use o calendário. Exemplo: (17/07/1979)</p>
-      <br/>
-      <p>This is the download page for <b>Behind the Green Door</b> Erotic painting installation's catalog that is for over 18 y.o.</p>
-      <p>Please enter your date of birthday in the dd/MM/yyyy format or use the date picker. E.g.: (17/07/1979)</p>
-      <br/>
-      <input class="form-control" id="datepicker" name="datepicker" type="text"></input>
-      <button class="btn" data-toggle="modal" id="greendoordownload" 
-        onclick="AgeGate()"><i class="fa icon-cloud-download" aria-hidden="true"></i> Download</button>
-    </div>
-    <div class="modal-footer" style="text-align: left;">
-        <span id="errorMessage"></span>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+            <h3>Verificação de idade | Age verification</h3>
+            </div>
+            <div class="modal-body">
+            <p>Esta é a página de download do Catálogo da Instalação de pintura erótica <b>Behind the Green Door</b> destinada a maiores de 18 anos.</p>
+            <p>Introduza por favor a sua data de nascimento no formato dia/mês/ano ou use o calendário. Exemplo: (17/07/1979)</p>
+            <br/>
+            <p>This is the download page for <b>Behind the Green Door</b> Erotic painting installation's catalog that is for over 18 y.o.</p>
+            <p>Please enter your date of birthday in the dd/MM/yyyy format or use the date picker. E.g.: (17/07/1979)</p>
+            <br/>
+            <input class="form-control" id="datepicker" name="datepicker" type="text"></input>
+            <button class="btn" data-toggle="modal" id="greendoordownload" 
+                onclick="AgeGate()"><i class="fa icon-cloud-download" aria-hidden="true"></i> Download</button>
+            </div>
+            <div class="modal-footer" style="text-align: left;">
+                <span id="errorMessage"></span>
+            </div>
+        </div>
     </div>
   </div>
   <script src="js/jquery.js"></script> 
@@ -124,161 +107,6 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script> 
   <script src="js/bootstrap-transition.js"></script> 
-  <script type="text/javascript">
-
-        function AgeGate() {
-            var errorMessage = document.getElementById("errorMessage");
-            var error_minor = '<span style="color: red"><i class="icon-exclamation-sign"></i> Só para maiores de 18 anos. You need to be over 18 y.o.</span>'
-            var error_wrongformat = '<span style="color: red"><i class="icon-exclamation-sign"></i> Introduza a data no formato correcto. Enter date in the correct format.</span>'
-            var confirmed = '<span style="color: green"><i class="icon-ok-sign"></i> Idade confirmada. Age confirmed.</span>'
-            var download_url = '//barahonapossollo.com/downloads/BGD_catalogo_2020.pdf'
-            // Get the date from the datepicker.
-            var dateString = document.getElementById("datepicker").value;
-            var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
-     
-            // Check whether valid dd/MM/yyyy Date Format.
-            if (regex.test(dateString)) {
-                var parts = dateString.split("/");
-                var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
-                var dtCurrent = new Date();
-                errorMessage.innerHTML = error_minor
-                if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
-                    return false;
-                }
-                if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
-                    if (dtCurrent.getMonth() < dtDOB.getMonth()) {
-                        return false;
-                    }
-                    if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-                        if (dtCurrent.getDate() < dtDOB.getDate()) {
-                            return false;
-                        }
-                    }
-                }
-                errorMessage.innerHTML = confirmed
-                window.open(download_url)
-                return true;
-            } else {
-                errorMessage.innerHTML = error_wrongformat
-                return false;
-            }
-        }
-        $("#datepicker").datepicker( {
-            format: "dd/mm/yyyy",
-            startView: "months", 
-            minViewMode: "days"
-        });
-        function formSubmit() {
-            document.getElementById("contact").submit();
-        }
-        $(window).load(function() {
-            //console.log("calling invitation modal")
-            $('#invitationModal').modal('show');
-        });
-
-        jQuery(function($) {
-
-            $.supersized({
-
-                // Functionality
-                slide_interval: 3000, // Length between transitions
-                transition: 1, // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-                transition_speed: 700, // Speed of transition
-                random: 1,
-                image_protect: 1,
-                vertical_center: 0,
-                fit_width: 1,
-
-                // Components
-                slide_links: 'blank', // Individual links for each slide (Options: false, 'num', 'name', 'blank')
-                slides: [ // Slideshow Images
-                    {
-                        image: 'img/front/001.jpg',
-                        title: 'The Mighty Horned One, the Monkeys Moth and Barahona, plus the Infernal Dog'
-                    }, {
-                        image: 'img/front/002.jpg',
-                        title: 'Y'
-                    }, {
-                        image: 'img/front/003.jpg',
-                        title: 'Theseus'
-                    }, {
-                        image: 'img/front/004.jpg',
-                        title: 'Venus and Vulcan'
-                    }, {
-                        image: 'img/front/005.jpg',
-                        title: 'Saint Dismas'
-                    }, {
-                        image: 'img/front/006.jpg',
-                        title: 'Hercules&#39; Hubris'
-                    }, {
-                        image: 'img/front/007.jpg',
-                        title: 'Alois Senefelder'
-                    }, {
-                        image: 'img/front/008.jpg',
-                        title: 'Hecate and her dogs'
-                    }, {
-                        image: 'img/front/009.jpg',
-                        title: 'Bacchus'
-                    },
-
-                    {
-                        image: 'img/front/010.jpg',
-                        title: 'The Chain'
-                    }, {
-                        image: 'img/front/011.jpg',
-                        title: 'The Witch'
-                    }, {
-                        image: 'img/front/012.jpg',
-                        title: 'Mary Magdalen'
-                    }, {
-                        image: 'img/front/013.jpg',
-                        title: 'Pelops and Poseidon'
-                    }, {
-                        image: 'img/front/014.jpg',
-                        title: 'Temperance'
-                    }, {
-                        image: 'img/front/015.jpg',
-                        title: 'Classic nocturnal landscape'
-                    }, {
-                        image: 'img/front/016.jpg',
-                        title: 'The Wiseman'
-                    }, {
-                        image: 'img/front/017.jpg',
-                        title: 'The Lamp'
-                    }, {
-                        image: 'img/front/018.jpg',
-                        title: 'Mars chasing Cupid'
-                    }, {
-                        image: 'img/front/019.jpg',
-                        title: 'King Sebastian as Ecce Homo'
-                    },
-
-                    {
-                        image: 'img/front/020.jpg',
-                        title: 'Autumn Faun'
-                    }, {
-                        image: 'img/front/021.jpg',
-                        title: 'Egyptian Still Life'
-                    }, {
-                        image: 'img/front/022.jpg',
-                        title: 'Night and her Sons'
-                    }, {
-                        image: 'img/front/023.jpg',
-                        title: 'Antechamber'
-                    }, {
-                        image: 'img/front/024.jpg',
-                        title: 'Refuge'
-                    }, {
-                        image: 'img/front/025.jpg',
-                        title: 'The Lost Sphynx'
-                    }, {
-                        image: 'img/front/026.jpg',
-                        title: 'The Ninth Circle II'
-                    }
-                ]
-            });
-        });
-
-  </script>
+  <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

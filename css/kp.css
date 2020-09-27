@@ -681,3 +681,21 @@
           }
       }
   }
+
+#invitationModal .modal-dialog, .modal-content {
+    height: 90%;
+}
+
+#invitationModal .modal-body {
+/* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: false;
+}
+
+#datepicker {
+    height: 30px;
+    vertical-align: baseline;
+}
+#errorMessage {
+    font-size: small;
+}
