@@ -1,127 +1,179 @@
 <!-- Website development and design by João Amaral - http://bit.ly/joaopauloamaral -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Carlos Barahona Possollo &middot; 2019</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!--     <link rel="stylesheet" href="./css/bootstrap.css" > -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' type='text/css'>
-    <link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/kp.css">
-
-    <!-- Fav and touch icons -->
-    <!--
+  <meta charset="utf-8">
+  <title>Carlos Barahona Possollo &middot; 2019</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel="stylesheet" type='text/css'>
+  <link href="css/supersized.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="theme/supersized.shutter.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="css/kp.css" rel="stylesheet"><!-- Fav and touch icons -->
+  <!--
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
  -->
-    <style>
-        #invitationModal .modal-body {
-            max-height: 800px;
+
+  <style>
+        #invitationModal .modal-dialog, .modal-content {
+            height: 90%;
         }
-    </style>
+
+        #invitationModal .modal-body {
+        /* 100% = dialog height, 120px = header + footer */
+            max-height: calc(100% - 120px);
+            overflow-y: false;
+        }
+
+        #datepicker {
+            height: 30px;
+            vertical-align: baseline;
+        }
+        #errorMessage {
+            font-size: small;
+        }
+        
+  </style>
 </head>
-
 <body id="main">
-
-
-
-    <!-- NAVBAR
+  <!-- NAVBAR
     ================================================== -->
-    <div class="navbar-wrapper">
-        <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-        <div class="container">
-
-            <div class="navbar navbar-inverse">
-                <div class="navbar-inner">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="index.html">Barahona Possollo</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li>
-                                <a href="author.html">
-                                    <!-- Autor -->Author</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html">
-                                    <!-- Galeria -->Gallery</a>
-                            </li>
-                            <li><a href="media.html">Media</a></li>
-                        </ul>
-                    </div>
-                    <!--/.nav-collapse -->
-                </div>
-                <!-- /.navbar-inner -->
-            </div>
-            <!-- /.navbar -->
-        </div>
-        <!-- /.container -->
+  <div class="navbar-wrapper">
+    <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+    <div class="container">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <a class="brand" href="index.html">Barahona Possollo</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li>
+                <a href="author.html"><!-- Autor -->Author</a>
+              </li>
+              <li>
+                <a href="gallery.html"><!-- Galeria -->Gallery</a>
+              </li>
+              <li>
+                <a href="media.html">Media</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!-- /.navbar-inner -->
+      </div><!-- /.navbar -->
+    </div><!-- /.container -->
+  </div><!-- /.navbar-wrapper -->
+  <!--Arrow Navigation-->
+  <a class="load-item" id="prevslide"></a> <a class="load-item" id="nextslide"></a> <!--Control Bar-->
+  <div class="load-item" id="controls-wrapper">
+    <div id="controls">
+      <div id="slidecaption"></div>
+      <div id="slidecaption2">
+        <a class="btn btn-inverse" href="http://www.evokecontemporary.com/Artists/CarlosPossollo.html" target="_blank" title="Sponsor">Evoke Contemporary</a> &nbsp; &nbsp; &nbsp; <a class="btn btn-inverse" href="http://theartofman.net" target=
+        "_blank" title="Sponsor">The Art of Man</a> &nbsp; &nbsp; &nbsp; <a class="btn btn-inverse" href="http://bit.ly/joaopauloamaral" target="_blank" title="Webdesigner and developer">Jo&atilde;o Amaral</a> &nbsp; &nbsp; &nbsp;
+      </div>
     </div>
-    <!-- /.navbar-wrapper -->
-
-
-    <!--Arrow Navigation-->
-    <a id="prevslide" class="load-item"></a>
-    <a id="nextslide" class="load-item"></a>
-
-    <!--Control Bar-->
-    <div id="controls-wrapper" class="load-item">
-        <div id="controls">
-            <div id="slidecaption"></div>
-            <div id="slidecaption2">
-                <a class="btn btn-inverse" href="http://www.evokecontemporary.com/Artists/CarlosPossollo.html" title="Sponsor" target="_blank">Evoke Contemporary</a> &nbsp; &nbsp; &nbsp;
-                <a class="btn btn-inverse" href="http://theartofman.net" title="Sponsor" target="_blank">The Art of
-                    Man</a> &nbsp; &nbsp; &nbsp;
-                <a class="btn btn-inverse" href="http://bit.ly/joaopauloamaral" title="Webdesigner and developer" target="_blank">Jo&atilde;o Amaral</a> &nbsp; &nbsp; &nbsp;
-            </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="invitationModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="exampleModalLongTitle"><b>behind</b> the <b>green</b> door</h3>
         </div>
-    </div>
-    <div class="modal fade" id="invitationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h3 class="modal-title" id="exampleModalLongTitle"><b>behind</b> the <b>green</b> door</h3>
-            </div>
-            <div class="modal-body">
-              <a href="https://greendoorbarahona.eventbrite.com" target="_blank">
-                <img src="img/behindthegreendoor.jpg" style="border-radius: 6px;">
-            </a>
-            </div>
-          </div>
+        <div class="modal-body">
+          <a href="https://greendoorbarahona.eventbrite.com" target="_blank"><img src="img/behindthegreendoor.jpg" style="border-radius: 6px;"></a>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#agegate" type="button"><i class="fa icon-cloud-download" aria-hidden="true"></i> Catálogo / Catalog</button>
+          <a href="https://greendoorbarahona.eventbrite.com" target="_blank" class="btn btn-default" role="button"><i class="fa icon-calendar" aria-hidden="true"></i> Evento / Event</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="modal hide fade" data-focus-on="input:first" id="agegate" tabindex="-1">
+    <div class="modal-header">
+      <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+      <h3>Verificação de idade | Age verification</h3>
+    </div>
+    <div class="modal-body">
+      <p>Esta é a página de download do Catálogo da Instalação de pintura erótica <b>Behind the Green Door</b> destinada a maiores de 18 anos.</p>
+      <p>Introduza por favor a sua data de nascimento no formato dia/mês/ano ou use o calendário. Exemplo: (17/07/1979)</p>
+      <br/>
+      <p>This is the download page for <b>Behind the Green Door</b> Erotic painting installation's catalog that is for over 18 y.o.</p>
+      <p>Please enter your date of birthday in the dd/MM/yyyy format or use the date picker. E.g.: (17/07/1979)</p>
+      <br/>
+      <input class="form-control" id="datepicker" name="datepicker" type="text"></input>
+      <button class="btn" data-toggle="modal" id="greendoordownload" 
+        onclick="AgeGate()"><i class="fa icon-cloud-download" aria-hidden="true"></i> Download</button>
+    </div>
+    <div class="modal-footer" style="text-align: left;">
+        <span id="errorMessage"></span>
+    </div>
+  </div>
+  <script src="js/jquery.js"></script> 
+  <script src="js/jquery.easing.min.js" type="text/javascript"></script> 
+  <script src="js/supersized.3.2.7.min.js" type="text/javascript"></script> 
+  <script src="theme/supersized.shutter.min.js" type="text/javascript"></script> 
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script> 
+  <script src="js/bootstrap-transition.js"></script> 
+  <script type="text/javascript">
 
-    <script src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
-    <script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script type="text/javascript">
+        function AgeGate() {
+            var errorMessage = document.getElementById("errorMessage");
+            var error_minor = '<span style="color: red"><i class="icon-exclamation-sign"></i> Só para maiores de 18 anos. You need to be over 18 y.o.</span>'
+            var error_wrongformat = '<span style="color: red"><i class="icon-exclamation-sign"></i> Introduza a data no formato correcto. Enter date in the correct format.</span>'
+            var confirmed = '<span style="color: green"><i class="icon-ok-sign"></i> Idade confirmada. Age confirmed.</span>'
+            var download_url = '//barahonapossollo.com/dowloads/BGD_catalogo_2020.pdf'
+            // Get the date from the datepicker.
+            var dateString = document.getElementById("datepicker").value;
+            var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+     
+            // Check whether valid dd/MM/yyyy Date Format.
+            if (regex.test(dateString)) {
+                var parts = dateString.split("/");
+                var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+                var dtCurrent = new Date();
+                errorMessage.innerHTML = error_minor
+                if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+                    return false;
+                }
+                if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
+                    if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+                        return false;
+                    }
+                    if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+                        if (dtCurrent.getDate() < dtDOB.getDate()) {
+                            return false;
+                        }
+                    }
+                }
+                errorMessage.innerHTML = confirmed
+                window.open(download_url)
+                return true;
+            } else {
+                errorMessage.innerHTML = error_wrongformat
+                return false;
+            }
+        }
+        $("#datepicker").datepicker( {
+            format: "dd/mm/yyyy",
+            startView: "months", 
+            minViewMode: "days"
+        });
         function formSubmit() {
             document.getElementById("contact").submit();
         }
         $(window).load(function() {
-            console.log("calling invitation modal")
+            //console.log("calling invitation modal")
             $('#invitationModal').modal('show');
-
         });
 
         jQuery(function($) {
@@ -139,36 +191,6 @@
 
                 // Components
                 slide_links: 'blank', // Individual links for each slide (Options: false, 'num', 'name', 'blank')
-                // slides 					:  	[			// Slideshow Images
-                // 														{image : 'img/front/001.jpg', title : 'O Cornudo-Mor, os Macacos Moth e Barahona, mais o C&atilde;o Infernal'} ,
-                // 														{image : 'img/front/002.jpg', title : 'Y'} ,
-                // 														{image : 'img/front/003.jpg', title : 'Teseu'} ,
-                // 														{image : 'img/front/004.jpg', title : 'V&eacute;nus e Vulcano'} ,
-                // 														{image : 'img/front/005.jpg', title : 'S&atilde;o Dismas'} ,
-                // 														{image : 'img/front/006.jpg', title : 'A Hubris de H&eacute;rcules'} ,
-                // 														{image : 'img/front/007.jpg', title : 'Alois Senefelder'} ,
-                // 														{image : 'img/front/008.jpg', title : 'Hecate e os seus C&atilde;es'} ,
-                // 														{image : 'img/front/009.jpg', title : 'Baco'} ,
-                //
-                // 														{image : 'img/front/010.jpg', title : 'A Cadeia'} ,
-                // 														{image : 'img/front/011.jpg', title : ' A Bruxa'} ,
-                // 														{image : 'img/front/012.jpg', title : 'Maria de Magdala'} ,
-                // 														{image : 'img/front/013.jpg', title : 'Pelops e Poseidon'} ,
-                // 														{image : 'img/front/014.jpg', title : 'Temperan&ccedil;a'} ,
-                // 														{image : 'img/front/015.jpg', title : 'Noturno Cl&aacute;ssico'} ,
-                // 														{image : 'img/front/016.jpg', title : 'O S&aacute;bio'} ,
-                // 														{image : 'img/front/017.jpg', title : 'A L&acirc;mpada'} ,
-                // 														{image : 'img/front/018.jpg', title : 'Marte perseguindo Cupido'} ,
-                // 														{image : 'img/front/019.jpg', title : 'D. Sebasti&atilde;o como Ecce Homo'} ,
-                //
-                // 														{image : 'img/front/020.jpg', title : 'Fauno Outonal'} ,
-                // 														{image : 'img/front/021.jpg', title : 'Natureza Morta Eg&iacute;pcia'} ,
-                // 														{image : 'img/front/022.jpg', title : 'A Noite e seus Filhos'} ,
-                // 														{image : 'img/front/023.jpg', title : 'Antec&acirc;mara'} ,
-                // 														{image : 'img/front/024.jpg', title : 'Ref&uacute;gio'} ,
-                // 														{image : 'img/front/025.jpg', title : 'A Esfinge Perdida'} ,
-                // 														{image : 'img/front/026.jpg', title : 'C&iacute;rculo Nono II'}
-                // 												]
                 slides: [ // Slideshow Images
                     {
                         image: 'img/front/001.jpg',
@@ -257,9 +279,6 @@
             });
         });
 
-    </script>
-
-
+  </script>
 </body>
-
 </html>
