@@ -44,8 +44,8 @@ function formSubmit() {
     document.getElementById("contact").submit();
 }
 $(window).load(function() {
-    //console.log("calling invitation modal")
-    $('#invitationModal').modal('show');
+    //  console.log("calling invitation modal")
+    // $('#invitationModal').modal('show');
 });
 
 jQuery(function($) {
