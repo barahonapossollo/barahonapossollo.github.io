@@ -45,9 +45,6 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="msapplication-config" content="/img/assets/ico/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <style>
-
-    </style>
 
     <!--
   		<link rel="stylesheet" type="text/css" href="css/default.css" />
@@ -107,7 +104,7 @@
                                         <b class="icon-asterisk"></b> Available Paintings
                                     </a></li>
                                 </ul>
-                            </li>
+                              </li>
                             <li><a href="media.html">Media</a></li>
                         </ul>
                     </div>
@@ -116,87 +113,17 @@
                 <!-- /.navbar-inner -->
             </div>
             <!-- /.navbar -->
+            <div class="cv">
+                <h1>AVAILABLE PAINTINGS</h1>
+                Price upon request barahonapossollo@gmail.com
+                <br /><br />
+            </div>
+            <div id="gallery"></div>
         </div>
         <!-- /.container -->
 
-
-        <div class="cont s--inactive">
-            <!-- cont inner start -->
-            <div class="cont__inner">
-                <!-- el start -->
-                <div class="el">
-                    <div class="el__overflow">
-                        <div class="el__inner">
-                            <div class="el__bg"></div>
-                            <div class="el__preview-cont">
-                                <h2 class="el__heading">M Y T H O L O G Y</h2>
-                            </div>
-                            <div class="el__content">
-                                <div class="el__text">M Y T H O L O G Y</div>
-                                <div class="el__close-btn"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- el end -->
-                <!-- el start -->
-                <div class="el">
-                    <div class="el__overflow">
-                        <div class="el__inner">
-                            <div class="el__bg"></div>
-                            <div class="el__preview-cont">
-                                <h2 class="el__heading">M E L A N C H O L Y</h2>
-                            </div>
-                            <div class="el__content">
-                                <div class="el__text">M E L A N C H O L Y</div>
-                                <div class="el__close-btn"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- el end -->
-                <!-- el start -->
-                <div class="el">
-                    <div class="el__overflow">
-                        <div class="el__inner">
-                            <div class="el__bg"></div>
-                            <div class="el__preview-cont">
-                                <h2 class="el__heading">E R O S</h2>
-                            </div>
-                            <div class="el__content">
-                                <div class="el__text">E R O S</div>
-                                <div class="el__close-btn"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- el end -->
-                <!-- el start -->
-                <div class="el">
-                    <div class="el__overflow">
-                        <div class="el__inner">
-                            <div class="el__bg"></div>
-                            <div class="el__preview-cont">
-                                <h2 class="el__heading">P O R T R A I T</h2>
-                            </div>
-                            <div class="el__content">
-                                <div class="el__text">P O R T R A I T</div>
-                                <div class="el__close-btn"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- el end -->
-
-            </div>
-
-            <!-- cont inner end -->
-
-
-        </div>
-
         <!-- <div id="gallery" style="left: 20px;right: 10px; margin: auto;"></div> -->
-        <div id="gallery"></div>
+
 
 
     </div>
@@ -216,9 +143,9 @@
         </div>
 
         <div class="modal-footer">
-            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true">I agree</a>
+            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="$('#gallery').show();">I agree</a>
             <!-- <a href="./gallery.html" class="btn btn-inverse">I disagree</a> -->
-            <a href="#" class="btn btn-inverse" onclick="$('#gallery').empty();" data-dismiss="modal">I disagree</a>
+            <a href="#" class="btn btn-inverse" data-dismiss="modal">I disagree</a>
         </div>
 
 
@@ -242,93 +169,66 @@
 <script src="js/imagesloaded.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/AnimOnScroll.js"></script>
+<script crossorigin src="https://unpkg.com/papaparse@5.3.1/papaparse.min.js"></script>
 
 <script>
-    var $cont = document.querySelector('.cont');
-    var $elsArr = [].slice.call(document.querySelectorAll('.el'));
-    var $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
 
-    setTimeout(function() {
-        $cont.classList.remove('s--inactive');
-    }, 200);
+    function init() {
+        var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
+        Papa.parse(url, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var data = results.data
+          // console.log(data)
+          var showData = $('#gallery');
 
-    $elsArr.forEach(function($el) {
-
-
-        $el.addEventListener('click', function() {
-
-            console.log("element clicked!");
-
-            if (this.classList.contains('s--active')) return;
-            $cont.classList.add('s--el-active');
-            this.classList.add('s--active');
-
-            $cat = document.querySelector('.el.s--active h2').innerHTML;
-            $cat = $cat.replace(/\s+/g, '');
-            $cat = $cat.toLowerCase();
-            $cat[0] = $cat[0].toUpperCase();
-            console.log($cat);
-
-
-            var showData = $('#gallery');
-            var url = 'gallery/gallery.json';
-
-            $.getJSON(url, function(data) {
-                var array = [];
-                $.each(data, function(i, item) {
-                    if (item.cat.toLowerCase() == $cat) {
-                        array.push([item.pos, item])
-                        array.sort(function(a, b) {
-                            return a[0] - b[0]
-                        });
-                    }
-                });
-                $.each(array, function(i, item) {
-                    var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item[1].filename + ".jpg' title='";
-                    listData += item[1].enTitle + ", " + item[1].enInfo;
-                    if (item[1].size == ' ') listData += ", " + item[1].size;
-                    listData += ", " + item[1].year;
-                    listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
-                    if ($cat == 'eros') {
-                        if ($('#myModal2').modal('show')) {
-                            $('#gallery').append(listData);
-                        };
-                    } else {
+            var array = [];
+            $.each(data, function(i, item) {
+                // console.log(item)
+                if (item.available == "TRUE") {
+                    // console.log(item)
+                    array.push([item.pos, item])
+                    array.sort(function(a, b) {
+                        return a[0] - b[0]
+                    });
+                }
+            });
+            $.each(array, function(i, item) {
+                var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item[1].filename + ".jpg' title='";
+                listData += item[1].enTitle + ", " + item[1].enInfo;
+                if (item[1].size == ' ') listData += ", " + item[1].size;
+                listData += ", " + item[1].year;
+                listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
+                // if ($cat == 'eros') {
+                    if ($('#myModal2').modal('show')) {
                         $('#gallery').append(listData);
+                    };
+                //} else {
+                //    $('#gallery').append(listData);
+                //}
+            });
+            $('#gallery').hide();
+
+            var container = document.querySelector('#gallery');
+            $(document).ready(function() {
+                $(".fancybox").fancybox({
+                    openEffect: 'elastic',
+                    closeEffect: 'elastic',
+                    helpers: {
+                        title: {
+                            type: 'float'
+                        }
                     }
                 });
             });
-        });
-    });
-
-    $closeBtnsArr.forEach(function($btn) {
-        $btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-
-            //console.log("close button clicked!");
+        }
+      })
+    }
+    window.addEventListener('DOMContentLoaded', init)
 
 
-            $cont.classList.remove('s--el-active');
-            document.querySelector('.el.s--active').classList.remove('s--active');
-            $('#gallery').empty();
-
-        });
-    });
-
-
-    var container = document.querySelector('#gallery');
-    $(document).ready(function() {
-        $(".fancybox").fancybox({
-            openEffect: 'elastic',
-            closeEffect: 'elastic',
-            helpers: {
-                title: {
-                    type: 'float'
-                }
-            }
-        });
-
-    });
+            
 </script>
 </body>
 
