@@ -242,6 +242,7 @@
 <script src="js/imagesloaded.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/AnimOnScroll.js"></script>
+<script crossorigin src="https://unpkg.com/papaparse@5.3.1/papaparse.min.js"></script>
 
 <script>
     var $cont = document.querySelector('.cont');
@@ -253,7 +254,6 @@
     }, 200);
 
     $elsArr.forEach(function($el) {
-
 
         $el.addEventListener('click', function() {
 
@@ -270,33 +270,39 @@
             console.log($cat);
 
 
-            var showData = $('#gallery');
-            var url = 'gallery/gallery.json';
+            var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
+            Papa.parse(url, {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    var data = results.data
+                    console.log(data)
 
-            $.getJSON(url, function(data) {
-                var array = [];
-                $.each(data, function(i, item) {
-                    if (item.cat.toLowerCase() == $cat) {
-                        array.push([item.pos, item])
-                        array.sort(function(a, b) {
-                            return a[0] - b[0]
-                        });
-                    }
-                });
-                $.each(array, function(i, item) {
-                    var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item[1].filename + ".jpg' title='";
-                    listData += item[1].enTitle + ", " + item[1].enInfo;
-                    if (item[1].size == ' ') listData += ", " + item[1].size;
-                    listData += ", " + item[1].year;
-                    listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
-                    if ($cat == 'eros') {
-                        if ($('#myModal2').modal('show')) {
+            
+                    var array = [];
+                    $.each(data, function(i, item) {
+                        if (item.cat.toLowerCase() == $cat) {
+                            array.push([item.pos, item])
+                            array.sort(function(a, b) {
+                                return a[0] - b[0]
+                            });
+                        }
+                    });
+                    $.each(array, function(i, item) {
+                        var listData = "<div class='itemMasonry'><a class='fancybox' href='new_gallery/" + item[1].filename + ".jpg' title='";
+                        listData += item[1].enTitle + ", " + item[1].enInfo;
+                        if (item[1].size == ' ') listData += ", " + item[1].size;
+                        listData += ", " + item[1].year;
+                        listData += "'><img src='new_gallery/" + item[1].filename + ".jpg'></a></div>";
+                        if ($cat == 'eros') {
+                            if ($('#myModal2').modal('show')) {
+                                $('#gallery').append(listData);
+                            };
+                        } else {
                             $('#gallery').append(listData);
-                        };
-                    } else {
-                        $('#gallery').append(listData);
-                    }
-                });
+                        }
+                    });
+                }
             });
         });
     });
