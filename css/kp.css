@@ -13,12 +13,7 @@
   .modal-backdrop {
       background-color: black;
   }
-  
-  iframe {
-      width: 100%;
-      height: 56.25vw;
-  }
-  
+   
   @media only screen and (max-width: 600px) {
       .cv {
           padding: 20px;
@@ -272,10 +267,11 @@
   
   #gallery {
       /*background: red;*/
+      width: 100%;
       margin-bottom: 10px;
-      height: auto;
+      /* height: auto; */
       top: 10px;
-      left: 50px;
+      left: 0px;
       right: 0px;
       text-align: center;
       margin: auto;
@@ -283,50 +279,44 @@
   
   @media screen and (max-width: 600px) {
       .itemMasonry {
-          width: 100%;
+          /* width: 100%;
           height: auto;
           float: left;
-          margin-bottom: 4px;
+          margin-bottom: 4px; */
+          
           /* related to Masonry gutter */
           /*   border-left: 5px; */
           /*   background: #D26; */
           /*   border-color: hsla(0, 0%, 0%, 0.5); */
           /*   border-radius: 5px; */
           /*display: none;*/
-          border: 10px solid #1f1f1f;
+          
+          /* border: 10px solid #1f1f1f; */
       }
   }
   
+  /* .grid-item { width: 200px; } */
   .itemMasonry {
-      width: 200px;
+    /* float: left; */
+    
+
+    /* width: 100px; */
+      /* width: 200px;
       height: auto;
       float: left;
-      margin-bottom: 4px;
+      margin-bottom: 4px; */
+      
       /* related to Masonry gutter */
       /*   border-left: 5px; */
       /*   background: #D26; */
       /*   border-color: hsla(0, 0%, 0%, 0.5); */
       /*   border-radius: 5px; */
       /*display: none;*/
-      border: 10px solid #1f1f1f;
+      
+      /* border: 10px solid #1f1f1f; */
   }
   
-  .itemMasonry img {
-      border-radius: 5px;
-      /* border: 5px solid #f00; */
-  }
   
-  .itemMasonry.w2 {
-      width: 400px;
-  }
-  
-  .itemMasonry.w3 {
-      width: 600px;
-  }
-  
-  .itemMasonry.w5 {
-      width: 1024px;
-  }
   
   .btn-inverse {
       color: #ddd;
