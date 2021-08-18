@@ -35,7 +35,8 @@
 
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/kp.css">
-    <link rel="stylesheet" href="css/kp2.css">
+    <!-- <link rel="stylesheet" href="css/kp2.css"> -->
+    <link rel="stylesheet" href="css/gallerymenu.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/assets/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/assets/ico/favicon-16x16.png">
@@ -71,28 +72,41 @@ body {
 
  /* .grid-sizer, */
 .grid-item { width: 20%;}
+.w2{ width: 40%; }
+.w3{ width: 60%; }
+/* .w4{ width: 80%; }
+.w5{ width: 100%; } */
+.h2 { height: 400px; }
+/* .h2{ height: 40%; }
+.h3{ height: 60%; }
+.h4{ height: 80%; }
+.h5{ height: 100%; } */
 /* 2 columns */
-/* grid-item--width2 { width: 40%; }
-.grid-item--width2 { width: 320px; }
-.grid-item--width3 { width: 480px; }
-.grid-item--width4 { width: 640px; }
+/* grid-item--width2 { width: 40%; } */
+/* .w2 { width: 320px; }
+.w3 { width: 480px; }
+.w4 { width: 640px; } */
 
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 360px; } */
+/* .h2 { height: 20%; } */
+/* .h2 { height: 200px; } */
+.h3 { height: 260px; }
+.h4 { height: 360px; }
 
 .grid-item img {
-      border-radius: 10px;
+      /* border-radius: 10px; */
       /* border: 5px solid rgb(90, 90, 90); */
-      padding: 3%;
+      /* padding: 0px; */
+      border: none;
+        border-radius: 7px;
+      padding: 0.5em 0.5em;
   }
 
 
   #loader {
-      position: relative;
-  /* position: absolute; */
+      /* position: relative; */
+  position: absolute;
   left: 50%;
-  /* top: 50%; */
+  top: 50%;
   z-index: 1;
   width: 60px;
   height: 60px;
@@ -239,18 +253,30 @@ body {
                     </div>
                 </div>
                 <!-- el end -->
+                 <!-- el start -->
+                 <!-- <div class="el">
+                    <div class="el__overflow">
+                        <div class="el__inner">
+                            <div class="el__bg"></div>
+                            <div class="el__preview-cont">
+                                <h2 class="el__heading">P O R T R A I T</h2>
+                            </div>
+                            <div class="el__content">
+                                <div class="el__text">P O R T R A I T</div>
+                                <div class="el__close-btn"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- el end -->
             </div>
 
             <!-- cont inner end -->
 
 
         </div>
-
-        <!-- <div id="gallery" style="left: 20px;right: 10px; margin: auto;"></div> -->
-        <!-- <div id="gallery" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'> -->
         <div id="loader"></div> 
         <div class="grid">
-            <!-- <div class=".grid-sizer" style="height: 1px;"></div> -->
         </div>
 
 
@@ -258,7 +284,6 @@ body {
 
     <div id="myModal2" class="modal hide fade" tabindex="-1" data-toggle="modal" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
         <div class="modal-header">
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
             <h3 id="myModalLabel2">You must be over 18 to view this content.</h3>
         </div>
 
@@ -282,8 +307,7 @@ body {
         </div>
 
         <div class="modal-footer">
-            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="arrange('eros')">Yes</a>
-            <!-- <a href="./gallery.html" class="btn btn-inverse">I disagree</a> -->
+            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="makegallery('eros')">Yes</a>
             <a href="#" class="btn btn-inverse" data-dismiss="modal">No</a>
         </div>
 
@@ -324,28 +348,34 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
         complete: function(results) {
             var data = results.data
             console.log(data)
-
             $.each(data, function(i, item) {
                 console.log(item)
-                var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
+                var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
+                listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 30px; color: white;'>"+item.pos+"</div><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
                 listData += item.enTitle + ", " + item.enInfo;
                 if (item.size != '') listData += ", " + item.size;
                 listData += ", " + item.year;
                 listData += "'><img src='new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
                 $('.grid').append(listData);
             });
-            $('grid').hide();
+            $('.grid').hide();
             var $grid = $('.grid').isotope({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-item',
-                percentPosition: true,
-                filter: ' '
-            });
-            $grid.imagesLoaded().progress( function() {
-                console.log('running imagesLoaded X clicked')
-                $grid.isotope('layout');
-                // $('.grid').show();
-            });
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true,
+            filter: "." + category,
+            getSortData: {
+                pos: '.pos parseInt'
+            }
+        });
+        $grid.imagesLoaded().progress( function() {
+            console.log('running imagesLoaded X clicked')
+            $grid.isotope({ sortBy: 'pos' });
+            $grid.isotope('layout');
+            $('#loader').hide();
+            $('.grid').show();
+            
+        });
     }});
 
 
@@ -381,7 +411,7 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
                         
                     };
             } else {
-                arrange(category);
+                makegallery(category);
                 // var $grid = $('.grid').isotope({
                 //     itemSelector: '.grid-item',
                 //     columnWidth: '.grid-item',
@@ -437,20 +467,24 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
 
     });
 
-    function arrange(category){
+    function makegallery(category){
         var $grid = $('.grid').isotope({
-                            itemSelector: '.grid-item',
-                            columnWidth: '.grid-item',
-                            percentPosition: true,
-                            filter: "." + category
-                        });
-                        $grid.imagesLoaded().progress( function() {
-                            console.log('running imagesLoaded X clicked')
-                            $grid.isotope('layout');
-                            $('#loader').hide();
-                            $('.grid').show();
-                            
-                        });
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-item',
+            percentPosition: true,
+            filter: "." + category,
+            getSortData: {
+                pos: '.pos parseInt'
+            }
+        });
+        $grid.imagesLoaded().progress( function() {
+            console.log('running imagesLoaded X clicked')
+            $grid.isotope({ sortBy: 'pos' });
+            $grid.isotope('layout');
+            $('#loader').hide();
+            $('.grid').show();
+            
+        });
     }
 
 
