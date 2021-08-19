@@ -265,9 +265,9 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
         header: true,
         complete: function(results) {
             var data = results.data
-            console.log(data)
+            console.table(data)
             $.each(data, function(i, item) {
-                console.log(item)
+                // console.log(item)
                 var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
                 listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 30px; color: white;'>"+item.pos+"</div><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
                 listData += item.enTitle + ", " + item.enInfo;
@@ -277,23 +277,23 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
                 $('.grid').append(listData);
             });
             $('.grid').hide();
+        
             var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-item',
-            percentPosition: true,
-            filter: "." + category,
-            getSortData: {
-                pos: '.pos parseInt'
-            }
-        });
-        $grid.imagesLoaded().progress( function() {
-            console.log('running imagesLoaded X clicked')
-            $grid.isotope({ sortBy: 'pos' });
-            $grid.isotope('layout');
-            $('#loader').hide();
-            $('.grid').show();
-            
-        });
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-item',
+                percentPosition: true,
+                filter: "." + category,
+                getSortData: {
+                    pos: '.pos parseInt'
+                }
+            });
+            $grid.imagesLoaded().progress( function() {
+                $grid.isotope({ sortBy: 'pos' });
+                $grid.isotope('layout');
+                $('#loader').hide();
+                $('.grid').show();
+                
+            });
     }});
 
 
@@ -310,7 +310,6 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
         $el.addEventListener('click', function() {
 
             $('#loader').show();
-            console.log("element clicked!");
 
             if (this.classList.contains('s--active')) return;
             $cont.classList.add('s--el-active');
@@ -321,7 +320,6 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
             $cat = $cat.toLowerCase();
             var category = $cat
             $cat[0] = $cat[0].toUpperCase();
-            console.log($cat);
 
             if ($cat == 'eros') {
                 $('.grid').hide();
@@ -330,17 +328,6 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
                     };
             } else {
                 makegallery(category);
-                // var $grid = $('.grid').isotope({
-                //     itemSelector: '.grid-item',
-                //     columnWidth: '.grid-item',
-                //     percentPosition: true,
-                //     filter: "." + category
-                // });
-                // $grid.imagesLoaded().progress( function() {
-                //     console.log('running imagesLoaded X clicked')
-                //     $grid.isotope('layout');
-                //     $('.grid').show();
-                // });
             }
         });
     });
@@ -348,27 +335,9 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
     $closeBtnsArr.forEach(function($btn) {
         $btn.addEventListener('click', function(e) {
             e.stopPropagation();
-
-            console.log("close button clicked!");
-
-
             $cont.classList.remove('s--el-active');
             document.querySelector('.el.s--active').classList.remove('s--active');
             $('.grid').hide();
-            // $('.grid').hide();
-            // var $grid = $('.grid').isotope({
-            //             itemSelector: '.grid-item',
-            //             columnWidth: '.grid-item',
-            //             percentPosition: true,
-            //             filter: ''
-            //         });
-            //         $grid.imagesLoaded().progress( function() {
-            //             console.log('running imagesLoaded X clicked')
-                        
-            //             $grid.isotope('layout');
-            //         });
-                    
-
         });
     });
 
@@ -396,7 +365,6 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
             }
         });
         $grid.imagesLoaded().progress( function() {
-            console.log('running imagesLoaded X clicked')
             $grid.isotope({ sortBy: 'pos' });
             $grid.isotope('layout');
             $('#loader').hide();
