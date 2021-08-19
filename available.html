@@ -170,9 +170,9 @@
             header: true,
             complete: function(results) {
                 var data = results.data
-                console.log(data)
+                // console.log(data)
                 $.each(data, function(i, item) {
-                    console.log(item)
+                    // console.log(item)
                     if (item.available == "TRUE") {
                         var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
                         listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 30px; color: white;'>"+item.pos+"</div><a class='fancybox' href='new_gallery/" + item.filename + ".jpg' title='";
@@ -192,8 +192,16 @@
                     pos: '.pos parseInt'
                 }
             });
+            console.log($('.grid'))
+            
+            if($('.grid').length === 1) {
+                console.log($('.grid').length)
+                var nothing = "<p>Currently no paintings are available. Please try again later. Thank you.</p>"
+                $('.grid').append(nothing);
+            }
+            $('#loader').hide();
             $grid.imagesLoaded().progress( function() {
-                console.log('running imagesLoaded X clicked')
+                // console.log('running imagesLoaded X clicked')
                 $grid.isotope({ sortBy: 'pos' });
                 $grid.isotope('layout');
                 $('#loader').hide();
