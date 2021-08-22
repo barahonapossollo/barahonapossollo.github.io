@@ -150,7 +150,7 @@ jQuery(function($) {
         ]
     });
 });
-document.title = 'Carlos Barahona Possollo - ' + new Date().getFullYear();
+// document.title = 'Carlos Barahona Possollo - ' + new Date().getFullYear();
 
 (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
