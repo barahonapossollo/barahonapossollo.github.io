@@ -407,7 +407,7 @@ body {
   padding: 50px;
 }
 
-.cv #facebook {
+.cv #facebook, .cv #instagram {
   text-shadow: 0px 1px 1px #4d4d4d;
   color: #000;
   vertical-align: middle;
@@ -419,14 +419,33 @@ body {
   vertical-align: middle;
 }
 
+.cv a:hover #instagram,
+.cv a:focus #instagram {
+  color: #e1306c;
+  vertical-align: middle;
+}
+
+.cv a #instagram a,
+.cv a:hover #instagram a,
+.cv a:focus #instagram a {
+  color: #e1306c;
+  vertical-align: middle;
+}
+
 .cv a {
   color: #aaa;
   text-decoration: none;
 }
 
-.cv a:hover,
-.cv a:focus {
+.cv a:hover #facebook,
+.cv a:focus #facebook {
   color: #0088cc;
+  /* text-decoration: underline; */
+}
+
+.cv a:hover #instagram,
+.cv a:focus #instagram {
+  color: #e1306c;
   /* text-decoration: underline; */
 }
 
@@ -829,6 +848,11 @@ body {
 }
 .blur {
   filter: blur(5px);
+}
+
+.ml {
+  padding: 5px 10px;
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=kp.css.map */

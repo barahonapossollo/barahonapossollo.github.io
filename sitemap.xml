@@ -4,37 +4,37 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
       xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url>
-  <loc>https://barahonapossollo.com/</loc>
-  <lastmod>2021-08-23</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://barahonapossollo.com/author</loc>
-  <lastmod>2021-08-23</lastmod>
-  <priority>0.80</priority>
-  <image:image>
-    <image:loc>https://barahonapossollo.com/img/author.jpg</image:loc>
-    <image:title>Barahona Possollo</image:title>
-  </image:image>
-  <image:image>
-    <image:loc>https://barahonapossollo.com/img/author2.jpg</image:loc>
-    <image:title>Barahona Possollo</image:title>
-  </image:image>
-</url>
-<url>
-  <loc>https://barahonapossollo.com/gallery</loc>
-  <lastmod>2021-08-23</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://barahonapossollo.com/available</loc>
-  <lastmod>2021-08-23</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://barahonapossollo.com/media</loc>
-  <lastmod>2021-08-23</lastmod>
-  <priority>0.80</priority>
-</url>
+  <url>
+    <loc>https://barahonapossollo.com/</loc>
+    <lastmod>2021-08-23</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://barahonapossollo.com/author</loc>
+    <lastmod>2021-08-23</lastmod>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://barahonapossollo.com/img/author.jpg</image:loc>
+      <image:title>Barahona Possollo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://barahonapossollo.com/img/author2.jpg</image:loc>
+      <image:title>Barahona Possollo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barahonapossollo.com/gallery</loc>
+    <lastmod>2021-08-23</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://barahonapossollo.com/available</loc>
+    <lastmod>2021-08-23</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://barahonapossollo.com/media</loc>
+    <lastmod>2021-08-23</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>

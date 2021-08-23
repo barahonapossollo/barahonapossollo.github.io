@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Gallery - Carlos Barahona Possollo</title>
+    <title>Gallery - Carlos Barahona Possollo - </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official Gallery of Carlos Barahona Possollo">
     <meta name="author" content="João Amaral">
@@ -269,7 +269,7 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
             $.each(data, function(i, item) {
                 // console.log(item)
                 var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
-                listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 30px; color: white;'>"+item.pos+"</div><a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
+                listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 50px; color: white;'>"+item.pos+"</div><a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
                 listData += item.enTitle + ", " + item.enInfo;
                 if (item.size != '') listData += ", " + item.size;
                 listData += ", " + item.year;
