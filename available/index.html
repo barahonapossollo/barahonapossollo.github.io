@@ -171,15 +171,21 @@
             complete: function(results) {
                 var data = results.data
                 // console.log(data)
+                var warning = "Warning!<br/>This image is graphic<br/>Click to reveal"
                 $.each(data, function(i, item) {
                     // console.log(item)
                     if (item.available == "TRUE") {
                         var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
-                        listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 30px; color: white;'>"+item.pos+"</div><a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
+                        // listData += "<div class='pos'>"+item.pos+"</div>";
+                        // listData += "<div class='pos'>"+item.pos+"</div>";
+                        if (item.blur == "TRUE") listData += "<div class='pos'>"+warning+"</div>";
+                        listData += "<a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
                         listData += item.enTitle + ", " + item.enInfo;
                         if (item.size != '') listData += ", " + item.size;
                         listData += ", " + item.year;
-                        listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
+                        listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'"
+                        if (item.blur == "TRUE") listData += " class='warning'";
+                        listData += "></a></div>";
                         $('.grid').append(listData);
                     }
                 });
