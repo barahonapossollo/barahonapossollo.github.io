@@ -175,7 +175,8 @@
                 $.each(data, function(i, item) {
                     // console.log(item)
                     if (item.available == "TRUE") {
-                        var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
+                        var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
+                        // var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
                         // listData += "<div class='pos'>"+item.pos+"</div>";
                         // listData += "<div class='pos'>"+item.pos+"</div>";
                         if (item.blur == "TRUE") listData += "<div class='pos'>"+warning+"</div>";
