@@ -52,7 +52,7 @@
     <script src="/js/modernizr.custom.js"></script>
 
     <script>
-        // document.title = 'Carlos Barahona Possollo - ' + new Date().getFullYear();
+        document.title = document.title + ' ' + new Date().getFullYear();
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function() {
@@ -102,11 +102,15 @@
                 <p>Price upon request: <i class="fa icon-envelope" aria-hidden="true"></i> barahonapossollo@gmail.com</p>
                 <br /><br />
             </div>
-            <div id="loader"></div> 
-            <div class="grid"></div>
+            
+        </div>
+        <div id="loader"></div> 
+        <div class="grid">
+            <div class="grid-sizer"></div>
         </div>
 
     </div>
+            
 
     <div id="myModal2" class="modal hide fade" tabindex="-1" data-toggle="modal" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
         <div class="modal-header">
@@ -179,12 +183,19 @@
                         // var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
                         // listData += "<div class='pos'>"+item.pos+"</div>";
                         // listData += "<div class='pos'>"+item.pos+"</div>";
-                        if (item.blur == "TRUE") listData += "<div class='pos'>"+warning+"</div>";
-                        listData += "<a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
+                        
+                        
+                        if (item.url != '') listData += "<a class='fancybox' href='" + item.url +"' title='";
+                        else listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='";
                         listData += item.enTitle + ", " + item.enInfo;
                         if (item.size != '') listData += ", " + item.size;
-                        listData += ", " + item.year;
-                        listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'"
+                        if (item.year != '')listData += ", " + item.year;
+                        listData += "'>"
+                        if (item.blur == "TRUE") {
+                            listData += "<div class='pos'>"+warning+"</div>";
+                        }
+                        if (item.url != '') listData += "<img src='" + item.url + "'"
+                        else listData += "<img src='/new_gallery/" + item.filename + "."+ item.ext +"'"
                         if (item.blur == "TRUE") listData += " class='warning'";
                         listData += "></a></div>";
                         $('.grid').append(listData);
@@ -193,11 +204,15 @@
                 // $('.grid').hide();
                 var $grid = $('.grid').isotope({
                 itemSelector: '.grid-item',
-                columnWidth: '.grid-item',
+                columnWidth: '.grid-sizer',
                 percentPosition: true,
                 getSortData: {
                     pos: '.pos parseInt'
-                }
+                },
+                // masonry: {
+                //     // use outer width of grid-sizer for columnWidth
+                //     columnWidth: '.grid-sizer'
+                // }
             });
             console.log($('.grid'))
             
@@ -210,6 +225,7 @@
             $grid.imagesLoaded().progress( function() {
                 // console.log('running imagesLoaded X clicked')
                 $grid.isotope({ sortBy: 'pos' });
+                $grid.isotope({ columnWidth: '.grid-sizer' })
                 $grid.isotope('layout');
                 $('#loader').hide();
                 $('.grid').show();
