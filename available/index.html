@@ -68,6 +68,32 @@
         ga('create', 'UA-43847216-1', 'barahonapossollo.com');
         ga('send', 'pageview');
     </script>
+    <style>
+
+        .grid-sizer2 { width: 20%; }
+        .grid-item2 { 
+            width: 20%; 
+            padding: 5px;
+            border-radius: 7px;
+        }
+        .grid-item2 img {
+              border-radius: 7px;
+            }
+        
+        @media screen and (max-width: 768px) {
+           /* 5 columns for larger screens */
+           .grid-sizer2 { 
+             width: 50%; 
+             /* background-color: red; */
+             height: 5px;
+           }
+           .grid-item2 { 
+               width: 50%; 
+               padding: 5px;
+               
+            }
+         }
+            </style>
 </head>
 
 <body>
@@ -105,8 +131,8 @@
             
         </div>
         <div id="loader"></div> 
-        <div class="grid">
-            <div class="grid-sizer"></div>
+        <div class="grid2">
+            <div class="grid-sizer2"></div>
         </div>
 
     </div>
@@ -168,8 +194,9 @@
 
     // function init() {
         $('#loader').show();
+        var urldev =  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1226465631&single=true&output=csv'
         var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
-        Papa.parse(url, {
+        Papa.parse(urldev, {
             download: true,
             header: true,
             complete: function(results) {
@@ -179,7 +206,7 @@
                 $.each(data, function(i, item) {
                     // console.log(item)
                     if (item.available == "TRUE") {
-                        var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
+                        var listData = "<div class='grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "'>"
                         // var listData = "<div class='grid-item "+ item.cat.toLowerCase() + "'>"
                         // listData += "<div class='pos'>"+item.pos+"</div>";
                         // listData += "<div class='pos'>"+item.pos+"</div>";
@@ -198,37 +225,37 @@
                         else listData += "<img src='/new_gallery/" + item.filename + "."+ item.ext +"'"
                         if (item.blur == "TRUE") listData += " class='warning'";
                         listData += "></a></div>";
-                        $('.grid').append(listData);
+                        $('.grid2').append(listData);
                     }
                 });
                 // $('.grid').hide();
-                var $grid = $('.grid').isotope({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-sizer',
+                var $grid = $('.grid2').isotope({
+                itemSelector: '.grid-item2',
+                // columnWidth: '.grid-sizer2',
                 percentPosition: true,
                 getSortData: {
                     pos: '.pos parseInt'
                 },
-                // masonry: {
-                //     // use outer width of grid-sizer for columnWidth
-                //     columnWidth: '.grid-sizer'
-                // }
+                masonry: {
+                    // use outer width of grid-sizer for columnWidth
+                    columnWidth: '.grid-sizer2'
+                }
             });
-            console.log($('.grid'))
+            // console.log($('.grid2'))
             
-            if($('.grid').length === 1) {
+            if($('.grid2').length === 1) {
                 console.log($('.grid').length)
                 var nothing = "<p class='message'>Currently no paintings are available. Please try again later. Thank you.</p>"
-                $('.grid').append(nothing);
+                $('.grid2').append(nothing);
             }
-            $('#loader').hide();
-            $grid.imagesLoaded().progress( function() {
-                // console.log('running imagesLoaded X clicked')
-                $grid.isotope({ sortBy: 'pos' });
-                $grid.isotope({ columnWidth: '.grid-sizer' })
-                $grid.isotope('layout');
+            // $('#loader').hide();
+            $('.grid2').imagesLoaded().done( function() {
+                console.log('running imagesLoaded X clicked')
+                $('.grid2').isotope({ sortBy: 'pos' });
+                $('.grid2').isotope({ columnWidth: '.grid-sizer' })
+                $('.grid2').isotope('layout');
                 $('#loader').hide();
-                $('.grid').show();
+                // $('.grid2').show();
                 $('.message').hide();
                 
             });
