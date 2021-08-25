@@ -4,15 +4,13 @@
 <head>
     <meta charset="utf-8">
     <title>Gallery - Carlos Barahona Possollo - </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;user-scalable=0;" />
+    <!-- <meta name="viewport" content="width=device-width; user-scalable=0;" /> -->
     <meta name="description" content="Official Gallery of Carlos Barahona Possollo">
     <meta name="author" content="João Amaral">
 
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/source/jquery.fancybox.css?v=2.1.5" media="screen" />
     <link rel="stylesheet" type="text/css" href="/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
     <link rel="stylesheet" type="text/css" href="/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
@@ -46,7 +44,29 @@
     <meta name="theme-color" content="#ffffff">
     <style>
 
+.grid-sizer2 { width: 20%; }
+.grid-item2 { 
+    width: 20%; 
+    padding: 5px;
+    border-radius: 7px;
+}
+.grid-item2 img {
+      border-radius: 7px;
+    }
 
+@media screen and (max-width: 768px) {
+   /* 5 columns for larger screens */
+   .grid-sizer2 { 
+     width: 50%; 
+     /* background-color: red; */
+     height: 5px;
+   }
+   .grid-item2 { 
+       width: 50%; 
+       padding: 5px;
+       
+    }
+ }
     </style>
 
     <!--
@@ -54,23 +74,28 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
  -->
     <script src="/js/modernizr.custom.js"></script>
-
+    <script>document.title = document.title + ' ' + new Date().getFullYear();</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43847216-1"></script>
     <script>
-        // document.title = 'Carlos Barahona Possollo - ' + new Date().getFullYear();
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    // (function(i, s, o, g, r, a, m) {
+        //     i['GoogleAnalyticsObject'] = r;
+        //     i[r] = i[r] || function() {
+        //         (i[r].q = i[r].q || []).push(arguments)
+        //     }, i[r].l = 1 * new Date();
+        //     a = s.createElement(o),
+        //         m = s.getElementsByTagName(o)[0];
+        //     a.async = 1;
+        //     a.src = g;
+        //     m.parentNode.insertBefore(a, m)
+        // })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-43847216-1', 'barahonapossollo.com');
-        ga('send', 'pageview');
+        // ga('create', 'UA-43847216-1', 'barahonapossollo.com');
+        // ga('send', 'pageview');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // gtag('config', 'UA-43847216-1');
+        gtag('config', 'UA-43847216-1', { cookie_flags: 'SameSite=None;Secure' });
     </script>
 </head>
 
@@ -117,18 +142,14 @@
                                 <h2 class="el__heading">M Y T H O L O G Y</h2>
                             </div>
                             <div class="el__content">
-                                <div class="el__text">M Y T H O L O G Y</div>
+                                <div class="el__text" onclick="filterGallery('mythology')">M Y T H O L O G Y</div>
                                 <div class="el__close-btn"></div>
-                                <!-- <div class="buttons">
-                                    <div class="minigallery fadeIn">
-                                        <img src="/new_gallery/M21.jpg" />
-                                        <div class="title">BOOK OF THE DEAD</div>
+                                <div class="buttons">
+                                    <div class="minigallery fadeIn" onclick="filterGallery('book')">
+                                        <img src="/new_gallery/B5.jpg" />
+                                        <div class="title">EGYPTIAN BOOK<br/>OF THE DEAD</div>
                                     </div>
-                                    <div class="minigallery fadeIn">
-                                        <img src="/new_gallery/E6.jpg" />
-                                        <div class="title">ALL YOU CAN EAT</div>
-                                    </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,8 +164,14 @@
                                 <h2 class="el__heading">M E L A N C H O L Y</h2>
                             </div>
                             <div class="el__content">
-                                <div class="el__text">M E L A N C H O L Y</div>
+                                <div class="el__text" onclick="filterGallery('melancholy')">M E L A N C H O L Y</div>
                                 <div class="el__close-btn"></div>
+                                <div class="buttons">
+                                    <div class="minigallery fadeIn" onclick="filterGallery('venice')">
+                                        <img src="/new_gallery/V14.jpg" />
+                                        <div class="title">VENICE</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,8 +186,18 @@
                                 <h2 class="el__heading">E R O S</h2>
                             </div>
                             <div class="el__content">
-                                <div class="el__text">E R O S</div>
+                                <div class="el__text" onclick="filterGallery('eros')">E R O S</div>
                                 <div class="el__close-btn"></div>
+                                <div class="buttons">
+                                    <div class="minigallery fadeIn" onclick="filterGallery('green')">
+                                        <img src="/img/GD.jpg" />
+                                        <div class="title">BEHIND THE GREEN DOOR</div>
+                                    </div>
+                                    <div class="minigallery fadeIn" onclick="filterGallery('eat')">
+                                        <img src="/img/EAT.jpg" />
+                                        <div class="title">ALL YOU CAN EAT</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -188,7 +225,9 @@
 
         </div>
         <div id="loader"></div> 
-        <div class="grid"></div>
+        <div class="grid2">
+            <div class="grid-sizer2"></div>
+        </div>
 
 
     </div>
@@ -250,45 +289,75 @@
 
 <script>
 
-$('#loader').hide();
+    function filterGallery(category){
+        console.log('filter gallery category: '+category)
 
-var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
-    Papa.parse(url, {
+        if (category != '') {
+            $('.grid2').isotope({ filter: "." + category });
+        } else {
+            $('.grid2').isotope({ filter: '' });
+        }
+        $('.grid2').isotope({ sortBy: 'pos' });
+        $('#loader').hide();
+        $('.grid2').css('opacity', 1); // hide
+
+
+    }
+
+    $('#loader').hide();
+    // $('.grid2').show();
+    $('.grid2').css('opacity', 0); // hide
+
+    var urldev =  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1226465631&single=true&output=csv'
+    var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
+    Papa.parse(urldev, {
         download: true,
         header: true,
         complete: function(results) {
             var data = results.data
-            console.table(data)
+            // console.table(data)
             $.each(data, function(i, item) {
                 // console.log(item)
-                var listData = "<div class='grid-item "+ item.class +" "+ item.cat.toLowerCase() + "'>"
-                listData += "<div class='pos' style='display: none; position: absolute; top: 50%; left: 50%; font-size: 50px; color: white;'>"+item.pos+"</div><a class='fancybox' href='/new_gallery/" + item.filename + ".jpg' title='";
-                listData += item.enTitle + ", " + item.enInfo;
-                if (item.size != '') listData += ", " + item.size;
-                listData += ", " + item.year;
-                listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
-                $('.grid').append(listData);
-            });
-            $('.grid').hide();
-        
-            var $grid = $('.grid').isotope({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-item',
-                percentPosition: true,
-                filter: "." + category,
-                getSortData: {
-                    pos: '.pos parseInt'
-                }
-            });
-            $grid.imagesLoaded().progress( function() {
-                $grid.isotope({ sortBy: 'pos' });
-                $grid.isotope('layout');
-                $('#loader').hide();
-                $('.grid').show();
+                var listData = "<div class='grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "' style=''>"
+                listData += "<div class='pos' style='display: none; vertical-align: middle; left: 50%; top: 50%; position: absolute; font-size: 50px; color: white; z-index: 99'>"+item.pos+"</div>"
                 
+                if (item.url != '') {
+                    listData += "<a class='fancybox' href='" + item.url +"' title='";
+                    listData += item.enTitle + ", " + item.enInfo;
+                    if (item.size != '') listData += ", " + item.size;
+                    listData += ", " + item.year;
+                    listData += "'><img src='" + item.url +"'></a></div>";
+                } else {
+                    listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='";
+                    listData += item.enTitle + ", " + item.enInfo;
+                    if (item.size != '') listData += ", " + item.size;
+                    listData += ", " + item.year;
+                    listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
+                }
+                $('.grid2').append(listData);
             });
-    }});
-
+            $('.grid2').isotope({
+                itemSelector: '.grid-item2',
+                percentPosition: true,
+                masonry: {
+                    columnWidth: '.grid-sizer2'
+                },
+                getSortData: {
+                                pos: '.pos parseInt'
+                            },
+                })
+         $('.grid2').imagesLoaded().done( function() {
+                console.log('images loaded done 2222')
+                $('.grid2').isotope({ sortBy: 'pos' });
+                $('.grid2').isotope('layout');
+                $('#loader').hide();
+                //  $('.grid2').show();
+                //  $('.grid2').css('opacity: 100%');
+                 $('.grid2').css('opacity', 0); // hide
+    
+            });
+        }
+    });
 
     var $cont = document.querySelector('.cont');
     var $elsArr = [].slice.call(document.querySelectorAll('.el'));
@@ -312,15 +381,16 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
             $cat = $cat.replace(/\s+/g, '');
             $cat = $cat.toLowerCase();
             var category = $cat
-            $cat[0] = $cat[0].toUpperCase();
+            // $cat[0] = $cat[0].toUpperCase();
 
             if ($cat == 'eros') {
-                $('.grid').hide();
+                $('.grid2').css('opacity', 0); // hide
                     if ($('#myModal2').modal('show')) {
-                        
+                        $('.grid2').css('opacity', 1);
+                        filterGallery('eros');
                     };
             } else {
-                makegallery(category);
+                filterGallery(category);
             }
         });
     });
@@ -330,7 +400,7 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
             e.stopPropagation();
             $cont.classList.remove('s--el-active');
             document.querySelector('.el.s--active').classList.remove('s--active');
-            $('.grid').hide();
+            $('.grid2').css('opacity', 0); // hide
         });
     });
 
@@ -344,29 +414,7 @@ var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZx
                 }
             }
         });
-
     });
-
-    function makegallery(category){
-        var $grid = $('.grid').isotope({
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-item',
-            percentPosition: true,
-            filter: "." + category,
-            getSortData: {
-                pos: '.pos parseInt'
-            }
-        });
-        $grid.imagesLoaded().progress( function() {
-            $grid.isotope({ sortBy: 'pos' });
-            $grid.isotope('layout');
-            $('#loader').hide();
-            $('.grid').show();
-            
-        });
-    }
-
-
 
 </script>
 </body>

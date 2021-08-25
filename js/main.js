@@ -150,8 +150,7 @@ jQuery(function($) {
         ]
     });
 });
-// document.title = 'Carlos Barahona Possollo - ' + new Date().getFullYear();
-
+document.title = document.title + ' ' + new Date().getFullYear();
 (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function() {
@@ -166,3 +165,4 @@ jQuery(function($) {
 
 ga('create', 'UA-43847216-1', 'barahonapossollo.com');
 ga('send', 'pageview');
+
