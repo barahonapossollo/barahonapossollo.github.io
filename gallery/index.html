@@ -44,29 +44,6 @@
     <meta name="theme-color" content="#ffffff">
     <style>
 
-.grid-sizer2 { width: 20%; }
-.grid-item2 { 
-    width: 20%; 
-    padding: 5px;
-    border-radius: 7px;
-}
-.grid-item2 img {
-      border-radius: 7px;
-    }
-
-@media screen and (max-width: 768px) {
-   /* 5 columns for larger screens */
-   .grid-sizer2 { 
-     width: 50%; 
-     /* background-color: red; */
-     height: 5px;
-   }
-   .grid-item2 { 
-       width: 50%; 
-       padding: 5px;
-       
-    }
- }
     </style>
 
     <!--
@@ -119,6 +96,7 @@
                             <li class="active"><a href="/gallery">Gallery </a></li>
                             <li><a href="/available"><i class="fa icon-asterisk" aria-hidden="true"></i> Available Paintings</a></li>
                             <li><a href="/media">Media</a></li>
+                            <li><a href="mailto:barahonapossollo@gmail.com"><i class="fa icon-envelope" aria-hidden="true"></i> barahonapossollo@gmail.com</a></li>
                         </ul>
                     </div>
                     <!--/.nav-collapse -->
@@ -144,11 +122,16 @@
                             <div class="el__content">
                                 <div class="el__text" onclick="filterGallery('mythology')">M Y T H O L O G Y</div>
                                 <div class="el__close-btn"></div>
+                                <div class="categoryclick" onclick="filterGallery('mythology')"></div>
                                 <div class="buttons">
                                     <div class="minigallery fadeIn" onclick="filterGallery('book')">
                                         <img src="/new_gallery/B5.jpg" />
                                         <div class="title">EGYPTIAN BOOK<br/>OF THE DEAD</div>
                                     </div>
+                                    <!-- <div class="minigallery fadeIn" onclick="filterGallery('eat')">
+                                        <img src="/img/EAT.jpg" />
+                                        <div class="title">ALL YOU CAN EAT</div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -166,6 +149,7 @@
                             <div class="el__content">
                                 <div class="el__text" onclick="filterGallery('melancholy')">M E L A N C H O L Y</div>
                                 <div class="el__close-btn"></div>
+                                <div class="categoryclick" onclick="filterGallery('melancholy')"></div>
                                 <div class="buttons">
                                     <div class="minigallery fadeIn" onclick="filterGallery('venice')">
                                         <img src="/new_gallery/V14.jpg" />
@@ -188,10 +172,14 @@
                             <div class="el__content">
                                 <div class="el__text" onclick="filterGallery('eros')">E R O S</div>
                                 <div class="el__close-btn"></div>
+                                <div class="categoryclick" onclick="filterGallery('eros')"></div>
                                 <div class="buttons">
                                     <div class="minigallery fadeIn" onclick="filterGallery('green')">
+                                        <!-- <div> -->
+
                                         <img src="/img/GD.jpg" />
                                         <div class="title">BEHIND THE GREEN DOOR</div>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="minigallery fadeIn" onclick="filterGallery('eat')">
                                         <img src="/img/EAT.jpg" />
@@ -214,6 +202,7 @@
                             <div class="el__content">
                                 <div class="el__text">P O R T R A I T</div>
                                 <div class="el__close-btn"></div>
+                                <div class="categoryclick" onclick="filterGallery('portrait')"></div>
                             </div>
                         </div>
                     </div>
@@ -257,8 +246,8 @@
         </div>
 
         <div class="modal-footer">
-            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="makegallery('eros')">Yes</a>
-            <a href="#" class="btn btn-inverse" data-dismiss="modal">No</a>
+            <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="filterGallery('eros')">Yes</a>
+            <a href="#" class="btn btn-inverse" data-dismiss="modal" onclick="$('.grid2').css('opacity', 0)">No</a>
         </div>
 
 
@@ -392,6 +381,7 @@
             } else {
                 filterGallery(category);
             }
+            $('#loader').hide();
         });
     });
 
