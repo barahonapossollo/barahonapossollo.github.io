@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>Gallery - Carlos Barahona Possollo - </title>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0;user-scalable=0;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0" /> -->
     <!-- <meta name="viewport" content="width=device-width; user-scalable=0;" /> -->
-    <meta name="description" content="Official Gallery of Carlos Barahona Possollo">
+    <meta name="description" content="Official Website of Carlos Barahona Possollo">
     <meta name="author" content="João Amaral">
 
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -17,6 +18,8 @@
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js" integrity="sha512-L03kznCrNOfVxOUovR6ESfCz9Gfny7gihUX/huVbQB9zjODtYpxaVtIaAkpetoiyV2eqWbvxMH9fiSv5enX7bw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.9/mammoth.browser.js"></script> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <!-- <script src="js/jquery.js"></script> -->
     <!-- <script type="text/javascript" src="js/jquery.easing.min.js"></script> -->
@@ -30,9 +33,9 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
-
+    <!-- <script src="/js/progress.js" type="text/javascript"></script> -->
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/kp.css">
+    <link rel="stylesheet" href="/css/kp.css" id="thiscss">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/assets/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/assets/ico/favicon-16x16.png">
@@ -74,9 +77,16 @@
         // gtag('config', 'UA-43847216-1');
         gtag('config', 'UA-43847216-1', { cookie_flags: 'SameSite=None;Secure' });
     </script>
+    <script src="/js/texts.js"></script>
 </head>
 
 <body>
+    <!-- PROGRESS BAR
+    ================================================== -->
+    <div class='progressGal' id="progress_div">
+        <div class='barGal' id='bar1'></div>
+        <div class='percentGal' id='percent1'></div>
+    </div>
     <!-- NAVBAR
     ================================================== -->
     <div class="navbar-wrapper">
@@ -213,10 +223,19 @@
 
 
         </div>
+
+
+
+
+        
+        
         <div id="loader"></div> 
-        <div class="grid2">
+        <div class="grid2 fadeIn">
             <div class="grid-sizer2"></div>
         </div>
+        <button type="button" class="collapsible collapsed" data-toggle="collapse" data-target="#text" aria-expanded="true" aria-controls="text">INSTALLATION TEXT</button>
+        <div class="collapse" id="text"></div>
+        
 
 
     </div>
@@ -247,7 +266,7 @@
 
         <div class="modal-footer">
             <a href="#" class="btn btn-inverse" data-dismiss="modal" aria-hidden="true" onclick="filterGallery('eros')">Yes</a>
-            <a href="#" class="btn btn-inverse" data-dismiss="modal" onclick="$('.grid2').css('opacity', 0)">No</a>
+            <a href="#" class="btn btn-inverse" data-dismiss="modal" onclick="closeAction()">No</a>
         </div>
 
 
@@ -256,6 +275,7 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <!-- <input type="hidden" id="progress_width" value="0"> -->
 </body>
 
 
@@ -287,27 +307,50 @@
             $('.grid2').isotope({ filter: '' });
         }
         $('.grid2').isotope({ sortBy: 'pos' });
-        $('#loader').hide();
+        // $('#loader').hide();
         $('.grid2').css('opacity', 1); // hide
+
+        switch (category) {
+            case 'eat':
+                $('.collapsible').show();
+                $('.collapsed').show();
+                $('#text').html(all_you_can_eat);
+                break;
+            case 'green':
+                $('.collapsible').show();
+                $('.collapsed').show();
+                $('#text').html(behind_the_green_door);
+                break;
+            default:
+                $('.collapsible').hide();
+                $('.collapsed').hide();
+        }
+        
 
 
     }
 
-    $('#loader').hide();
+    // $('#loader').show();
     // $('.grid2').show();
     $('.grid2').css('opacity', 0); // hide
+    $('.collapsible').hide();
+    $('.collapsed').hide();
 
+    var per_inc = 0;
+    var counter = 0;
+    var total = -1;
     var urldev =  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1226465631&single=true&output=csv'
     var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
-    Papa.parse(urldev, {
+    Papa.parse(url, {
         download: true,
         header: true,
         complete: function(results) {
             var data = results.data
             // console.table(data)
+            total = data.length
             $.each(data, function(i, item) {
                 // console.log(item)
-                var listData = "<div class='grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "' style=''>"
+                var listData = "<div class='is-loading grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "' style=''>"
                 listData += "<div class='pos' style='display: none; vertical-align: middle; left: 50%; top: 50%; position: absolute; font-size: 50px; color: white; z-index: 99'>"+item.pos+"</div>"
                 
                 if (item.url != '') {
@@ -335,14 +378,64 @@
                                 pos: '.pos parseInt'
                             },
                 })
+                $('.grid2').imagesLoaded().progress( function(instance, image) {
+                    counter++;
+
+                    // console.log(instance)
+                    // console.log(image)
+                    // console.log(counter + ' images loaded of ' + total)
+                    // change class if the image is loaded or broken
+                    var $item = $( image.img ).parent().parent();
+                    // console.log(image.img)
+                    // console.log($item)
+                    $item.removeClass('is-loading');
+                    if ( !image.isLoaded ) {
+                        $item.addClass('is-broken');
+                    }
+                    $('.grid2').isotope({ sortBy: 'pos' });
+                    $('.grid2').isotope('layout');
+                    per_inc=counter/total*100;
+                    // console.log(per_inc)
+                    // var prog_width=per_inc+Number(document.getElementById("progress_width").value);
+                    // console.log(prog_width)
+                    // document.getElementById("progress_width").value=prog_width;
+                    document.getElementById("bar1").style.width = per_inc+"%"
+                    console.log(document.getElementById("bar1").style.width)
+                    if(document.getElementById("bar1").style.width=="100%")
+                        {
+                            $(".progressGal").fadeOut("slow");
+                            $('#loader').fadeOut("slow");
+                            $('#loader').hide();
+
+                        }
+                    // $("#bar1").animate({width:per_inc+"%"},10,function(){
+                    //     // console.log(prog_width)
+                    //     // console.log(counter, total)
+                    //     // console.log($('#percent1'))
+                    //     // $('#percent1').html("Loading Gallery " + counter + " paintings loaded of " + total)
+                    //     // console.log($('#percent1'))
+                    //     if(document.getElementById("bar1").style.width=="100%")
+                    //     {
+                    //         $(".progress").fadeOut("slow");
+                    //     }
+                    // })
+                    // if (counter == total) $('#loader').hide();
+                    //  $('.grid2').show();
+                    //  $('.grid2').css('opacity: 100%');
+                    // $('.grid2').css('opacity', 0); // hide
+    
+            });
+
          $('.grid2').imagesLoaded().done( function() {
-                console.log('images loaded done 2222')
+                console.log('finished loading gallery')
                 $('.grid2').isotope({ sortBy: 'pos' });
                 $('.grid2').isotope('layout');
-                $('#loader').hide();
+                // $('.text h1').html('Hello World');
+                
+                // $('#loader').hide();
                 //  $('.grid2').show();
                 //  $('.grid2').css('opacity: 100%');
-                 $('.grid2').css('opacity', 0); // hide
+                //  $('.grid2').css('opacity', 0); // hide
     
             });
         }
@@ -360,7 +453,7 @@
 
         $el.addEventListener('click', function() {
 
-            $('#loader').show();
+            // $('#loader').show();
 
             if (this.classList.contains('s--active')) return;
             $cont.classList.add('s--el-active');
@@ -374,25 +467,31 @@
 
             if ($cat == 'eros') {
                 $('.grid2').css('opacity', 0); // hide
-                    if ($('#myModal2').modal('show')) {
-                        $('.grid2').css('opacity', 1);
-                        filterGallery('eros');
-                    };
+                // if (
+                    $('#myModal2').modal('show')
+                // ) {
+                //     $('.grid2').css('opacity', 1);
+                //     filterGallery('eros');
+                // }
             } else {
                 filterGallery(category);
             }
-            $('#loader').hide();
+            // $('#loader').hide();
         });
     });
 
     $closeBtnsArr.forEach(function($btn) {
         $btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            $cont.classList.remove('s--el-active');
-            document.querySelector('.el.s--active').classList.remove('s--active');
-            $('.grid2').css('opacity', 0); // hide
+            closeAction();
         });
     });
+
+    function closeAction(){
+        $cont.classList.remove('s--el-active');
+        document.querySelector('.el.s--active').classList.remove('s--active');
+        $('.grid2').css('opacity', 0); // hide
+    }
 
     $(document).ready(function() {
         $(".fancybox").fancybox({
@@ -405,6 +504,62 @@
             }
         });
     });
+
+    // document.onreadystatechange = function(e)
+    // {
+    //     if(document.readyState=="interactive") {
+    //         var all = document.getElementsByTagName("*");
+    //         for (var i=0, max=all.length; i < max; i++) 
+    //         {
+    //             // console.log(all[i])
+    //             set_ele(all[i]);
+    //         }
+    //     }
+    // }
+
+    // function check_element(ele)
+    // {
+    //     var all = document.getElementsByTagName("*");
+    //     var totalele=all.length;
+    //     var per_inc=100/all.length;
+    //     console.log(totalele)
+    //     console.log(per_inc)
+
+    //     if($(ele).on())
+    //     {
+    //         var prog_width=per_inc+Number(document.getElementById("progress_width").value);
+    //         console.log(prog_width)
+    //         document.getElementById("progress_width").value=prog_width;
+    //         $("#bar1").animate({width:prog_width+"%"},10,function(){
+    //             console.log(prog_width)
+    //             console.log(counter, total)
+    //         if(document.getElementById("bar1").style.width=="100%")
+    //         {
+    //             $(".progress").fadeOut("slow");
+    //         }			
+    //         });
+    //     } else {
+    //         set_ele(ele);
+    //     }
+    // }
+
+    // function set_ele(set_element) {
+    //     check_element(set_element);
+    // }
+
+//     (function() {
+//   var h, a, f;
+// //   a = document.getElementsByTagName('link');
+//   a = document.getElementsByName('thiscss');
+//   for (h = 0; h < a.length; h++) {
+//     f = a[h];
+//     if (f.rel.toLowerCase().match(/stylesheet/) && f.href) {
+//       var g = f.href.replace(/(&|\?)rnd=\d+/, '');
+//       f.href = g + (g.match(/\?/) ? '&' : '?');
+//       f.href += 'rnd=' + (new Date().valueOf());
+//     }
+//   } // for
+// })()
 
 </script>
 </body>

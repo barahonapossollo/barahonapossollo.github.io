@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Available Paintings - Carlos Barahona Possollo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -173,7 +174,7 @@
         $('#loader').show();
         var urldev =  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1226465631&single=true&output=csv'
         var url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlaCTd_5UhNxupH70kZxxqRyl4rPBqcEDfgm-xA3VcPmwBcYoNJMYMvqSyN-GjLhdbYLUzlrkDiaFS/pub?gid=1871399810&single=true&output=csv'
-        Papa.parse(urldev, {
+        Papa.parse(url, {
             download: true,
             header: true,
             complete: function(results) {
