@@ -900,9 +900,9 @@ body {
 .buttons {
   position: absolute;
   right: 0px;
-  bottom: 60px;
-  left: 0px;
+  bottom: 20px;
   cursor: pointer;
+  width: max-content;
 }
 
 .minigallery {

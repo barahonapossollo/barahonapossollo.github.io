@@ -1054,8 +1054,8 @@ body {
   // border: 5px solid red;
   right: 0px;
   // top: 0px;
-  bottom: 60px;
-  left: 0px;
+  bottom: 20px;
+  // left: 0px;
   // bottom: 10%;
   // left: 10%;
   // top: 15%;
@@ -1067,6 +1067,7 @@ body {
   // width:250px;
   // height: 200px;
   // bottom: 40px;
+  width: max-content;
   
 }
 .minigallery {
@@ -1260,6 +1261,7 @@ body {
     // background-color: yellow;
     // display: flex; // flex
     bottom: 50px;
+    
   }
 }
 
