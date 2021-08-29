@@ -1,6 +1,7 @@
 @use "sass:math";
 // @import "_spinners";
 
+$gold: #f0dc82;
 $vertPad: 20px;
 // $sidePad: 170px;
 $sidePad: 20px;
@@ -1054,11 +1055,27 @@ body {
   }
 }
 
-.ml {
+.footer-link {
   padding: 5px 10px;
   font-size: 15px;
   margin-right: 20px;
+  color: white;
 }
+
+.footer-link:hover {
+  padding: 5px 10px;
+  font-size: 15px;
+  margin-right: 20px;
+  color: $gold;
+  text-decoration: none;
+}
+
+.navbar-inverse .nav>li>a:focus, .navbar-inverse .nav>li>a:hover {
+  background-color: transparent;
+  color: $gold;
+}
+
+
 .minigallerywrapper {
   position: absolute;
   // background-color: green;

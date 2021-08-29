@@ -900,10 +900,24 @@ body {
     transform: rotate(360deg);
   }
 }
-.ml {
+.footer-link {
   padding: 5px 10px;
   font-size: 15px;
   margin-right: 20px;
+  color: white;
+}
+
+.footer-link:hover {
+  padding: 5px 10px;
+  font-size: 15px;
+  margin-right: 20px;
+  color: #f0dc82;
+  text-decoration: none;
+}
+
+.navbar-inverse .nav > li > a:focus, .navbar-inverse .nav > li > a:hover {
+  background-color: transparent;
+  color: #f0dc82;
 }
 
 .minigallerywrapper {
