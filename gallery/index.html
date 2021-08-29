@@ -240,7 +240,7 @@
         </div>
         <button type="button" class="collapsible collapsed" data-toggle="collapse" data-target="#text" aria-expanded="true" aria-controls="text">INSTALLATION TEXT</button>
         <div class="collapse" id="text"></div>
-        
+
 
 
     </div>
@@ -319,16 +319,19 @@
             case 'eat':
                 $('.collapsible').show();
                 $('.collapsed').show();
+                $('#text').show();
                 $('#text').html(all_you_can_eat);
                 break;
             case 'green':
                 $('.collapsible').show();
                 $('.collapsed').show();
+                $('#text').show();
                 $('#text').html(behind_the_green_door);
                 break;
             default:
                 $('.collapsible').hide();
                 $('.collapsed').hide();
+                $('#text').hide();
         }
         
 
@@ -340,6 +343,7 @@
     $('.grid2').css('opacity', 0); // hide
     $('.collapsible').hide();
     $('.collapsed').hide();
+    $('#text').hide();
 
     var per_inc = 0;
     var counter = 0;
@@ -358,15 +362,16 @@
                 var listData = "<div class='is-loading grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "' style=''>"
                 listData += "<div class='pos' style='display: none; vertical-align: middle; left: 50%; top: 50%; position: absolute; font-size: 50px; color: white; z-index: 99'>"+item.pos+"</div>"
                 var cc = '<br/>This photo of the original painting of <a href="/author">Barahona Possollo</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>';
+                var title = item.enTitle.replace(/'/g, "&apos;")
                 if (item.url != '') {
-                    listData += "<a class='fancybox' href='" + item.url +"' title=<b>'";
-                    listData += item.enTitle + "</b>, " + item.enInfo;
+                    listData += "<a class='fancybox' href='" + item.url +"' title='"+ title +"' data-fancybox-title='<b>";
+                    listData += title + "</b>, " + item.enInfo;
                     if (item.size != '') listData += ", " + item.size;
                     listData += ", " + item.year + cc;
                     listData += "'><img src='" + item.url +"'></a></div>";
                 } else {
-                    listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='<b>";
-                    listData += item.enTitle + "</b>, " + item.enInfo;
+                    listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='"+ title +"' data-fancybox-title='<b>";
+                    listData += title + "</b>, " + item.enInfo;
                     if (item.size != '') listData += ", " + item.size;
                     listData += ", " + item.year + cc;
                     listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
@@ -491,6 +496,7 @@
             closeAction();
             $('.collapsible').hide();
             $('.collapsed').hide();
+            $('#text').hide();
         });
     });
 
