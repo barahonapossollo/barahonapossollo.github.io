@@ -7,9 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0" /> -->
     <!-- <meta name="viewport" content="width=device-width; user-scalable=0;" /> -->
-    <meta name="description" content="Official Website of Carlos Barahona Possollo">
+    <meta name="description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal">
     <meta name="author" content="João Amaral">
-
+    <meta name="keywords" content="art, painting"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Carlos Barahona Possollo"/>
+    <meta name="twitter:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal"/>
+    <meta name="twitter:image" content="https://barahonapossollo.com/img/front/004.jpg"/>
+    <meta property="og:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal"/>
+    <meta property="og:title" content="Carlos Barahona Possollo"/>
+    <meta property="og:image" content="https://barahonapossollo.com/img/front/004.jpg"/>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/source/jquery.fancybox.css?v=2.1.5" media="screen" />
@@ -133,7 +140,7 @@
                                 <div class="el__text" onclick="filterGallery('mythology')">M Y T H O L O G Y</div>
                                 <div class="el__close-btn"></div>
                                 <div class="categoryclick" onclick="filterGallery('mythology')"></div>
-                                <div class="buttons">
+                                <div class="minigallerywrapper">
                                     <div class="minigallery fadeIn" onclick="filterGallery('book')">
                                         <img src="/new_gallery/B5.jpg" />
                                         <div class="title">EGYPTIAN BOOK<br/>OF THE DEAD</div>
@@ -159,8 +166,8 @@
                             <div class="el__content">
                                 <div class="el__text" onclick="filterGallery('melancholy')">M E L A N C H O L Y</div>
                                 <div class="el__close-btn"></div>
-                                <div class="categoryclick" onclick="filterGallery('melancholy')"></div>
-                                <div class="buttons">
+                                <!-- <div class="categoryclick" onclick="filterGallery('melancholy')"></div> -->
+                                <div class="minigallerywrapper">
                                     <div class="minigallery fadeIn" onclick="filterGallery('venice')">
                                         <img src="/new_gallery/V14.jpg" />
                                         <div class="title">VENICE</div>
@@ -183,7 +190,7 @@
                                 <div class="el__text" onclick="filterGallery('eros')">E R O S</div>
                                 <div class="el__close-btn"></div>
                                 <div class="categoryclick" onclick="filterGallery('eros')"></div>
-                                <div class="buttons">
+                                <div class="minigallerywrapper">
                                     <div class="minigallery fadeIn" onclick="filterGallery('green')">
                                         <!-- <div> -->
 
@@ -400,7 +407,7 @@
                     // console.log(prog_width)
                     // document.getElementById("progress_width").value=prog_width;
                     document.getElementById("bar1").style.width = per_inc+"%"
-                    console.log(document.getElementById("bar1").style.width)
+                    // console.log(document.getElementById("bar1").style.width)
                     if(document.getElementById("bar1").style.width=="100%")
                         {
                             $(".progressGal").fadeOut("slow");
