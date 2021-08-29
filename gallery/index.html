@@ -357,18 +357,18 @@
                 // console.log(item)
                 var listData = "<div class='is-loading grid-item2 "+ item.class +" "+ item.cat.toLowerCase() + "' style=''>"
                 listData += "<div class='pos' style='display: none; vertical-align: middle; left: 50%; top: 50%; position: absolute; font-size: 50px; color: white; z-index: 99'>"+item.pos+"</div>"
-                
+                var cc = '<br/>This photo of the original painting of <a href="/author">Barahona Possollo</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>';
                 if (item.url != '') {
-                    listData += "<a class='fancybox' href='" + item.url +"' title='";
-                    listData += item.enTitle + ", " + item.enInfo;
+                    listData += "<a class='fancybox' href='" + item.url +"' title=<b>'";
+                    listData += item.enTitle + "</b>, " + item.enInfo;
                     if (item.size != '') listData += ", " + item.size;
-                    listData += ", " + item.year;
+                    listData += ", " + item.year + cc;
                     listData += "'><img src='" + item.url +"'></a></div>";
                 } else {
-                    listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='";
-                    listData += item.enTitle + ", " + item.enInfo;
+                    listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='<b>";
+                    listData += item.enTitle + "</b>, " + item.enInfo;
                     if (item.size != '') listData += ", " + item.size;
-                    listData += ", " + item.year;
+                    listData += ", " + item.year + cc;
                     listData += "'><img src='/new_gallery/" + item.filename + "."+ item.ext +"'></a></div>";
                 }
                 $('.grid2').append(listData);
