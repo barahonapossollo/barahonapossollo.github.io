@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <title>Gallery - Carlos Barahona Possollo - </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0" /> -->
-    <!-- <meta name="viewport" content="width=device-width; user-scalable=0;" /> -->
-    <meta name="description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal">
+    <meta name="description" content="Official Website of Carlos Barahona Possollo Portuguese Painter">
     <meta name="author" content="João Amaral">
     <meta name="keywords" content="art, painting"/>
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="Carlos Barahona Possollo"/>
-    <meta name="twitter:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal"/>
+    <meta name="twitter:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter"/>
     <meta name="twitter:image" content="https://barahonapossollo.com/img/front/004.jpg"/>
-    <meta property="og:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter Paintings Gallery Portugal"/>
+    <meta property="og:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter"/>
     <meta property="og:title" content="Carlos Barahona Possollo"/>
     <meta property="og:image" content="https://barahonapossollo.com/img/front/004.jpg"/>
     <link href="/css/bootstrap.css" rel="stylesheet">
@@ -306,7 +304,7 @@
 <script>
 
     function filterGallery(category){
-        console.log('filter gallery category: '+category)
+        // console.log('filter gallery category: '+category)
 
         if (category != '') {
             $('.grid2').isotope({ filter: "." + category });
@@ -399,8 +397,8 @@
                     if ( !image.isLoaded ) {
                         $item.addClass('is-broken');
                     }
-                    $('.grid2').isotope({ sortBy: 'pos' });
-                    $('.grid2').isotope('layout');
+                    // $('.grid2').isotope({ sortBy: 'pos' });
+                    // $('.grid2').isotope('layout');
                     per_inc=counter/total*100;
                     // console.log(per_inc)
                     // var prog_width=per_inc+Number(document.getElementById("progress_width").value);
@@ -510,7 +508,7 @@
             closeEffect: 'elastic',
             helpers: {
                 title: {
-                    type: 'float'
+                    type: 'inside'
                 }
             }
         });
