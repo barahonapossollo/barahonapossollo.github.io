@@ -49,7 +49,7 @@ $contentFadeinAT: 0.5s;
 .cont {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 80vh;
   padding: $vertPad $sidePad;
 
   &__inner {
@@ -70,7 +70,7 @@ $contentFadeinAT: 0.5s;
   left: 0;
   top: 0;
   width: $elW;
-  height: 80%;
+  height: 100%;
   background: #252525;
   transition: transform $moveAT $expandAT, width $expandAT,
     opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT;

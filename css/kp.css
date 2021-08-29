@@ -1,7 +1,7 @@
 .cont {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 80vh;
   padding: 20px 20px;
 }
 .cont__inner {
@@ -17,7 +17,7 @@
   left: 0;
   top: 0;
   width: 24.25%;
-  height: 80%;
+  height: 100%;
   background: #252525;
   transition: transform 0.6s 0.7s, width 0.7s, opacity 0.6s 0.7s, z-index 0s 1.3s;
 }
