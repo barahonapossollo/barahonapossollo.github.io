@@ -15,6 +15,8 @@
     <meta property="og:description" content="Official Website of Carlos Barahona Possollo Portuguese Painter"/>
     <meta property="og:title" content="Carlos Barahona Possollo"/>
     <meta property="og:image" content="https://barahonapossollo.com/img/front/004.jpg"/>
+    <meta property="og:url" content="https://barahonapossollo.com"/>
+    <meta property="og:type" content="website"/>
 
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
@@ -198,7 +200,7 @@
                         
                         
                         if (item.url != '') listData += "<a class='fancybox' href='" + item.url +"' title='";
-                        else listData += "<a class='fancybox' href='/new_gallery/" + item.filename + "."+ item.ext +"' title='";
+                        else listData += "<a class='fancybox' href='/img/gallery/" + item.filename + "."+ item.ext +"' title='";
                         listData += item.enTitle + ", " + item.enInfo;
                         if (item.size != '') listData += ", " + item.size;
                         if (item.year != '')listData += ", " + item.year;
@@ -207,7 +209,7 @@
                             listData += "<div class='poswarn'>"+warning+"</div>";
                         }
                         if (item.url != '') listData += "<img src='" + item.url + "'"
-                        else listData += "<img src='/new_gallery/" + item.filename + "."+ item.ext +"'"
+                        else listData += "<img src='/img/gallery/" + item.filename + "."+ item.ext +"'"
                         if (item.blur == "TRUE") listData += " class='warning'";
                         listData += "></a></div>";
                         $('.grid2').append(listData);

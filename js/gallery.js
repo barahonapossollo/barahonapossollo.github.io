@@ -65,7 +65,7 @@ Papa.parse(url, {
         ' by <a href="/author">Barahona Possollo</a> is licensed as <a href="https://creativecommons.org/licenses/by-sa/4.0/"><i class="cc cc-BY-SA"></i></a><br/>';
       var download =
         '<a target="_blank" href="' +
-        (item.url ? "" : "/new_gallery/") +
+        (item.url ? "" : "/img/gallery/") +
         (item.url ? item.url : item.filename + "." + item.ext) +
         '" download="' +
         title.replace(/[^a-z0-9]/gi, "_").toLowerCase() +
@@ -86,7 +86,7 @@ Papa.parse(url, {
         listData += "'><img src='" + item.url + "'></a></div>";
       } else {
         listData +=
-          "<a class='fancybox' href='/new_gallery/" +
+          "<a class='fancybox' href='/img/gallery/" +
           item.filename +
           "." +
           item.ext +
@@ -97,7 +97,7 @@ Papa.parse(url, {
         if (item.size != "") listData += ", " + item.size;
         listData += ", " + item.year + cc + download;
         listData +=
-          "'><img src='/new_gallery/" +
+          "'><img src='/img/gallery/" +
           item.filename +
           "." +
           item.ext +
