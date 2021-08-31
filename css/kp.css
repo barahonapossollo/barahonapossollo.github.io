@@ -975,27 +975,6 @@ body {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-  /* 5 columns for larger screens */
-  .minigallery {
-    width: 125px;
-    height: 145px;
-    position: relative;
-  }
-
-  .minigallery img {
-    width: 125px;
-    height: 125px;
-  }
-
-  .minigallery div {
-    font-size: 3vw;
-  }
-
-  .minigallerywrapper {
-    bottom: 50px;
-  }
-}
 .progressGal {
   position: fixed;
   left: 0px;
@@ -1084,6 +1063,33 @@ body {
   /* Unicode character for "minus" sign (-) */
   margin-right: 15px;
   line-height: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  /* 5 columns for larger screens */
+  .minigallery {
+    width: 125px;
+    height: 145px;
+    position: relative;
+  }
+
+  .minigallery img {
+    width: 125px;
+    height: 125px;
+  }
+
+  .minigallery div {
+    font-size: 3vw;
+  }
+
+  .minigallerywrapper {
+    bottom: 50px;
+  }
+
+  .modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    height: 40vh;
+  }
 }
 
 /*# sourceMappingURL=kp.css.map */
