@@ -1,52 +1,52 @@
-function AgeGate() {
-    var errorMessage = document.getElementById("errorMessage");
-    var error_minor = '<span style="color: red"><i class="icon-exclamation-sign"></i> Só para maiores de 18 anos. You need to be over 18 y.o.</span>'
-    var error_wrongformat = '<span style="color: red"><i class="icon-exclamation-sign"></i> Introduza a data no formato correcto. Enter date in the correct format.</span>'
-    var confirmed = '<span style="color: green"><i class="icon-ok-sign"></i> Idade confirmada. Age confirmed.</span>'
-    var download_url = '//barahonapossollo.com/downloads/BGD_catalogo_2020.pdf'
-    // get the date from the datepicker.
-    var dateString = document.getElementById("datepicker").value;
-    var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+// function AgeGate() {
+//     var errorMessage = document.getElementById("errorMessage");
+//     var error_minor = '<span style="color: red"><i class="icon-exclamation-sign"></i> Só para maiores de 18 anos. You need to be over 18 y.o.</span>'
+//     var error_wrongformat = '<span style="color: red"><i class="icon-exclamation-sign"></i> Introduza a data no formato correcto. Enter date in the correct format.</span>'
+//     var confirmed = '<span style="color: green"><i class="icon-ok-sign"></i> Idade confirmada. Age confirmed.</span>'
+//     var download_url = '//barahonapossollo.com/downloads/BGD_catalogo_2020.pdf'
+//     // get the date from the datepicker.
+//     var dateString = document.getElementById("datepicker").value;
+//     var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
 
-    // check whether valid dd/MM/yyyy Date Format.
-    if (regex.test(dateString)) {
-        var parts = dateString.split("/");
-        var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
-        var dtCurrent = new Date();
-        errorMessage.innerHTML = error_minor
-        if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
-            return false;
-        }
-        if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
-            if (dtCurrent.getMonth() < dtDOB.getMonth()) {
-                return false;
-            }
-            if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-                if (dtCurrent.getDate() < dtDOB.getDate()) {
-                    return false;
-                }
-            }
-        }
-        errorMessage.innerHTML = confirmed
-        window.open(download_url)
-        return true;
-    } else {
-        errorMessage.innerHTML = error_wrongformat
-        return false;
-    }
-}
-$("#datepicker").datepicker( {
-    format: "dd/mm/yyyy",
-    startView: "months", 
-    minViewMode: "days"
-});
-function formSubmit() {
-    document.getElementById("contact").submit();
-}
-$(window).load(function() {
-    //  console.log("calling invitation modal")
-    // $('#invitationModal').modal('show');
-});
+//     // check whether valid dd/MM/yyyy Date Format.
+//     if (regex.test(dateString)) {
+//         var parts = dateString.split("/");
+//         var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+//         var dtCurrent = new Date();
+//         errorMessage.innerHTML = error_minor
+//         if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+//             return false;
+//         }
+//         if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
+//             if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+//                 return false;
+//             }
+//             if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+//                 if (dtCurrent.getDate() < dtDOB.getDate()) {
+//                     return false;
+//                 }
+//             }
+//         }
+//         errorMessage.innerHTML = confirmed
+//         window.open(download_url)
+//         return true;
+//     } else {
+//         errorMessage.innerHTML = error_wrongformat
+//         return false;
+//     }
+// }
+// $("#datepicker").datepicker( {
+//     format: "dd/mm/yyyy",
+//     startView: "months", 
+//     minViewMode: "days"
+// });
+// function formSubmit() {
+//     document.getElementById("contact").submit();
+// }
+// $(window).load(function() {
+//     //  console.log("calling invitation modal")
+//     // $('#invitationModal').modal('show');
+// });
 
 jQuery(function($) {
 
@@ -231,19 +231,19 @@ jQuery(function($) {
         ]
     });
 });
-document.title = document.title + ' ' + new Date().getFullYear();
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+// document.title = document.title + ' ' + new Date().getFullYear();
+// (function(i, s, o, g, r, a, m) {
+//     i['GoogleAnalyticsObject'] = r;
+//     i[r] = i[r] || function() {
+//         (i[r].q = i[r].q || []).push(arguments)
+//     }, i[r].l = 1 * new Date();
+//     a = s.createElement(o),
+//         m = s.getElementsByTagName(o)[0];
+//     a.async = 1;
+//     a.src = g;
+//     m.parentNode.insertBefore(a, m)
+// })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-43847216-1', 'barahonapossollo.com');
-ga('send', 'pageview');
+// ga('create', 'UA-43847216-1', 'barahonapossollo.com');
+// ga('send', 'pageview');
 
