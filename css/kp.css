@@ -534,14 +534,25 @@ body {
   font-size: 20px;
   font-weight: bold;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
 /* Navbar links: increase padding for taller navbar */
 .navbar .nav > li > a {
   padding: 15px 20px;
+  text-transform: uppercase;
 }
 
 /* Offset the responsive button for proper vertical alignment */
+.navbar .right {
+  float: right;
+  font-size: 20px;
+}
+
+.navbar .right span {
+  display: none;
+}
+
 .navbar .btn-navbar {
   margin-top: 10px;
 }
@@ -624,6 +635,15 @@ body {
 @media (max-width: 767px) {
   .navbar-inner {
     margin: -20px;
+  }
+
+  .navbar .right {
+    float: left;
+    font-size: 14px;
+  }
+
+  .navbar .right span {
+    display: inline;
   }
 }
 #gallery-wrapper {
@@ -1114,7 +1134,6 @@ body {
   bottom: 0px;
   left: 0;
   z-index: 4;
-  background: url(../img/nav-bg.png) repeat-x;
   position: fixed;
 }
 
@@ -1184,12 +1203,10 @@ body {
 
 #prevslide {
   left: 10px;
-  background: url("../img/back.png");
 }
 
 #nextslide {
   right: 10px;
-  background: url("../img/forward.png");
 }
 
 #prevslide:active,

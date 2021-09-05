@@ -1,7 +1,7 @@
 @use "sass:math";
 // @import "_spinners";
 
-$gold: #f0dc82;
+$gold:#f0dc82;
 $vertPad: 20px;
 // $sidePad: 170px;
 $sidePad: 20px;
@@ -623,20 +623,29 @@ body {
 /* Downsize the brand/project name a bit */
 
 .navbar .brand {
-  color: #f0dc82;
+  color: $gold;
   padding: 14px 20px 16px;
   /* Increase vertical padding to match navbar links */
   font-size: 20px;
   font-weight: bold;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 /* Navbar links: increase padding for taller navbar */
 
 .navbar .nav > li > a {
   padding: 15px 20px;
+  text-transform: uppercase;
 }
 /* Offset the responsive button for proper vertical alignment */
+.navbar .right {
+  float: right;
+  font-size: 20px;
+}
 
+.navbar .right span {
+  display: none;
+}
 .navbar .btn-navbar {
   margin-top: 10px;
 }
@@ -666,7 +675,7 @@ body {
   margin-right: 20px;
   float: left;
   font-weight: bold;
-  color: #f0dc82;
+  color: $gold;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1),
     0 0 30px rgba(255, 255, 255, 0.125);
   -webkit-transition: all 0.2s linear;
@@ -725,6 +734,18 @@ body {
   .navbar-inner {
     margin: -20px;
   }
+  .navbar .right {
+    float: left;
+    font-size: 14px;
+  }
+  
+  .navbar .right span {
+    display: inline;
+  }
+
+  // .navbar {
+  //   background-color:#e1306c !important;
+  // }
 }
 
 #gallery-wrapper {
@@ -1318,7 +1339,7 @@ body {
   bottom: 0px;
   left: 0;
   z-index: 4;
-  background: url(../img/nav-bg.png) repeat-x;
+  // background: url(../img/nav-bg.png) repeat-x;
   position: fixed;
 }
 #controls {
@@ -1381,11 +1402,11 @@ body {
 }
 #prevslide {
   left: 10px;
-  background: url("../img/back.png");
+  // background: url("../img/back.png");
 }
 #nextslide {
   right: 10px;
-  background: url("../img/forward.png");
+  // background: url("../img/forward.png");
 }
 #prevslide:active,
 #nextslide:active {
