@@ -387,11 +387,6 @@ body {
   .container {
     width: 100% !important;
   }
-
-  iframe {
-    width: 100vw;
-    height: 56.25vw;
-  }
 }
 .cv {
   color: #aaa;
@@ -408,7 +403,7 @@ body {
   /* 4px +12px + 4px */
 }
 
-.cv h1 {
+.cv h1, h1 {
   text-shadow: 0px 1px 1px #4d4d4d;
   color: #000;
   font-size: 35px;
@@ -431,13 +426,6 @@ body {
 
 .cv a:hover #instagram,
 .cv a:focus #instagram {
-  color: #e1306c;
-  vertical-align: middle;
-}
-
-.cv a #instagram a,
-.cv a:hover #instagram a,
-.cv a:focus #instagram a {
   color: #e1306c;
   vertical-align: middle;
 }
@@ -610,7 +598,7 @@ body {
 
 /* RESPONSIVE CSS
   -------------------------------------------------- */
-@media (max-width: 1024px) {
+@media screen and (max-width: 979px) {
   .container.navbar-wrapper {
     margin-bottom: 0;
     width: auto;
@@ -620,8 +608,7 @@ body {
     border-radius: 0;
     margin: -20px 0;
   }
-}
-@media (max-width: 979px) {
+
   .container.navbar-wrapper {
     margin-bottom: 0;
     width: auto;
@@ -631,8 +618,7 @@ body {
     border-radius: 0;
     margin: -20px 0;
   }
-}
-@media (max-width: 1024px) {
+
   .navbar-inner {
     margin: -20px;
   }
@@ -640,6 +626,10 @@ body {
   .navbar .right {
     float: left;
     font-size: 0.875rem;
+  }
+
+  .navbar .right span {
+    display: inline;
   }
 }
 #gallery-wrapper {
@@ -658,6 +648,11 @@ body {
   margin: auto;
 }
 
+@media screen and (max-width: 600px) {
+  .navbar .right span {
+    display: inline;
+  }
+}
 .btn-inverse {
   color: #ddd;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -1185,6 +1180,8 @@ body {
   top: 50%;
   margin-top: -21px;
   opacity: 0.6;
+  text-align: center;
+  line-height: 20px;
 }
 
 #prevslide {
@@ -1472,16 +1469,30 @@ ul#thumb-list li:hover {
 }
 #prevslide,
 #nextslide {
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
   background: none;
 }
 
-@media (min-width: 980px) and (max-width: 1200px) {
+@media screen and (min-width: 980px) and (max-width: 1200px) {
   .navbar .nav > li > a {
-    color: greenyellow !important;
     font-size: 80%;
     padding: 15px 10px;
+  }
+
+  #prevslide, #nextslide {
+    font-size: 3vw;
+    opacity: 0.3;
+  }
+}
+@media screen and (max-width: 980px) {
+  #prevslide, #nextslide {
+    font-size: 6vw;
+    opacity: 0.3;
+  }
+
+  #slidecaption {
+    font-size: 4vw;
   }
 }
 
