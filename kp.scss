@@ -1009,9 +1009,14 @@ body {
 }
 
 .navbar-inverse .nav > li > a:focus,
-.navbar-inverse .nav > li > a:hover {
+.navbar-inverse .nav > li > a:hover,
+li > a:hover {
   background-color: transparent;
   color: $gold;
+}
+#media .links {
+  width: 80%;
+   margin-left: 10%;
 }
 
 .minigallerywrapper {
