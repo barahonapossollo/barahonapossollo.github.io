@@ -43,11 +43,6 @@ $("#datepicker").datepicker( {
 function formSubmit() {
     document.getElementById("contact").submit();
 }
-$(window).load(function() {
-    //  console.log("calling invitation modal")
-    // $('#invitationModal').modal('show');
-});
-
 jQuery(function($) {
 
     $.supersized({
