@@ -23,7 +23,7 @@
   "homepage": "https://github.com/barahonapossollo/barahonapossollo.github.io#readme",
   "devDependencies": {
     "eslint": "^7.32.0",
-    "webpack": "^5.51.1",
+    "webpack": "^5.76.0",
     "webpack-cli": "^4.8.0"
   }
 }
