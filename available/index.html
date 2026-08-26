@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Available Paintings - Carlos Barahona Possollo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Official Website of Carlos Barahona Possollo Portuguese Painter">
     <meta name="author" content="João Amaral">
     <meta name="keywords" content="art, painting"/>
@@ -113,7 +113,7 @@
                           <li>
                             <a
                               href="mailto:barahonapossollo@gmail.com"
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               title="Email"
                               ><i class="fa icon-envelope" aria-hidden="true"></i
                             ><span> Email</span></a>
@@ -121,7 +121,7 @@
                           <li>
                             <a
                               href="https://www.facebook.com/carlos.possollo"
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               title="Facebook"
                               ><i class="icon-facebook-sign"></i
                             ><span> Facebook</span></a>
@@ -129,14 +129,14 @@
                           <li>
                             <a
                               href="https://www.instagram.com/barahonapossolo"
-                              target="_blank"
+                              target="_blank" rel="noopener noreferrer"
                               title="Instagram"
                               ><i class="bi bi-instagram"></i
                             ><span> Instagram</span></a>
                           </li>
                           <!-- <li><a
                           href="https://twitter.com/barahonapossollo"
-                          target="_blank"
+                          target="_blank" rel="noopener noreferrer"
                           title="Twitter"
                           ><i class="bi bi-twitter"></i
                         ></a></li> -->
@@ -248,7 +248,7 @@
                         if (item.url != '') listData += "<img src='" + item.url + "'"
                         else listData += "<img src='/img/gallery/" + item.filename + "."+ item.ext +"'"
                         if (item.blur == "TRUE") listData += " class='warning'";
-                        listData += "></a></div>";
+                        listData += " alt='" + item.enTitle + "'></a></div>";
                         $('.grid2').append(listData);
                     }
                 });
